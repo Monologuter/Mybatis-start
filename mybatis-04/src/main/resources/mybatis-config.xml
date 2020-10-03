@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+<!--    引入外部配置文件-->
+    <properties  resource="db.properties">
+
+
+    </properties>
+
+<!--    可以给实体类取别名-->
+    <typeAliases>
+        <typeAlias type="com.educy.entity.User" alias="User"></typeAlias>
+        <typeAlias type="com.educy.entity.tUser" alias="tUser"></typeAlias>
+    </typeAliases>
+
+    <!--配置文件标签-->
+    <!--主要的配置文件-->
+    <environments default="development">
+        <!--配置mybatis的环境-->
+        <environment id="development">
+            <!--配置的事务类型-->
+            <transactionManager type="JDBC"></transactionManager>
+            <!--配置数据源-->
+            <dataSource type="POOLED">
+                <!--配置数据库连接的四个基本信息-->
+                <property name="driver" value="${driver}" />
+                <property name="url" value="${url}" />
+                <property name="username" value="${username}" />
+                <property name="password" value="${password}" />
+            </dataSource>
+        </environment>
+
+        <environment id="aliyun">
+            <transactionManager type="JDBC"></transactionManager>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver" />
+                <property name="url" value="jdbc:mysql://47.102.202.189:3306/mybatis?useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false&amp;serverTimezone=CTT" />
+                <property name="username" value="root" />
+                <property name="password" value="123456" />
+            </dataSource>
+        </environment>
+    </environments>
+    <!--指定映射文件的配置 映射文件指的是每个dao的独立配置文件-->
+    <mappers>
+        <mapper resource="com/educy/dao/UserMapper.xml"></mapper>
+        <mapper class="com.educy.dao.StudentMapper"></mapper>
+        <mapper resource="com/educy/dao/tUserMapper.xml"></mapper>
+    </mappers>
+</configuration>

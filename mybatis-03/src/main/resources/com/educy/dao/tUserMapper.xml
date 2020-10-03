@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.educy.dao.tUserMapper">
+
+<!--    结果集映射-->
+    <resultMap id="tUserMapper" type="tUser">
+<!--        column代表的是数据库中的字段-->
+<!--        property代表的是实体类中的属性-->
+        <result column="t_id" property="id"></result>
+        <result column="t_username" property="name"></result>
+        <result column="t_birthday" property="birthday"></result>
+        <result column="t_sex" property="sex"></result>
+        <result column="t_address" property="address"></result>
+        <result column="t_password" property="pwd"></result>
+    </resultMap>
+
+    <select id="getUserById"  resultMap="tUserMapper" >
+    <!--select t_id as id , t_username as name ,t_birthday as birthday , t_sex as sex , t_address as address , t_password as pwd from user02  where t_id= #{t_id}  -->
+
+       select * from user02 where t_id= #{t_id}
+    </select>
+
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
