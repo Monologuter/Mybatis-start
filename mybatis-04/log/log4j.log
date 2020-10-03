@@ -1,0 +1,33 @@
+2020-10-03 23:43:39,487 0      [           main] INFO       com.educy.dao.UserDaoTest  - info:进入了log4j
+2020-10-03 23:43:39,488 1      [           main] DEBUG      com.educy.dao.UserDaoTest  - debug:进入了debug
+2020-10-03 23:43:39,488 1      [           main] ERROR      com.educy.dao.UserDaoTest  - error:
+2020-10-03 23:43:57,364 0      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+2020-10-03 23:43:57,365 1      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+2020-10-03 23:43:57,387 23     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
+2020-10-03 23:43:57,387 23     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
+2020-10-03 23:43:57,387 23     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
+2020-10-03 23:43:57,387 23     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
+2020-10-03 23:43:57,492 128    [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Opening JDBC Connection
+2020-10-03 23:43:57,771 407    [           main] DEBUG source.pooled.PooledDataSource  - Created connection 107456312.
+2020-10-03 23:43:57,771 407    [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Setting autocommit to false on JDBC Connection [com.mysql.jdbc.JDBC4Connection@667a738]
+2020-10-03 23:43:57,776 412    [           main] DEBUG cy.dao.tUserMapper.getUserById  - ==>  Preparing: select * from user02 where t_id= ?
+2020-10-03 23:43:57,802 438    [           main] DEBUG cy.dao.tUserMapper.getUserById  - ==> Parameters: 1(Integer)
+2020-10-03 23:43:57,816 452    [           main] DEBUG cy.dao.tUserMapper.getUserById  - <==      Total: 1
+2020-10-03 23:43:57,819 455    [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Resetting autocommit to true on JDBC Connection [com.mysql.jdbc.JDBC4Connection@667a738]
+2020-10-03 23:43:57,821 457    [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Closing JDBC Connection [com.mysql.jdbc.JDBC4Connection@667a738]
+2020-10-03 23:43:57,821 457    [           main] DEBUG source.pooled.PooledDataSource  - Returned connection 107456312 to pool.
+2020-10-03 23:45:59,967 0      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+2020-10-03 23:45:59,969 2      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+2020-10-03 23:46:00,001 34     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
+2020-10-03 23:46:00,002 35     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
+2020-10-03 23:46:00,002 35     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
+2020-10-03 23:46:00,002 35     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
+2020-10-03 23:46:00,147 180    [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Opening JDBC Connection
+2020-10-03 23:46:00,435 468    [           main] DEBUG source.pooled.PooledDataSource  - Created connection 107456312.
+2020-10-03 23:46:00,435 468    [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Setting autocommit to false on JDBC Connection [com.mysql.jdbc.JDBC4Connection@667a738]
+2020-10-03 23:46:00,440 473    [           main] DEBUG cy.dao.tUserMapper.getUserById  - ==>  Preparing: select * from user02 where t_id= ?
+2020-10-03 23:46:00,470 503    [           main] DEBUG cy.dao.tUserMapper.getUserById  - ==> Parameters: 1(Integer)
+2020-10-03 23:46:00,493 526    [           main] DEBUG cy.dao.tUserMapper.getUserById  - <==      Total: 1
+2020-10-03 23:46:00,496 529    [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Resetting autocommit to true on JDBC Connection [com.mysql.jdbc.JDBC4Connection@667a738]
+2020-10-03 23:46:00,498 531    [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Closing JDBC Connection [com.mysql.jdbc.JDBC4Connection@667a738]
+2020-10-03 23:46:00,498 531    [           main] DEBUG source.pooled.PooledDataSource  - Returned connection 107456312 to pool.

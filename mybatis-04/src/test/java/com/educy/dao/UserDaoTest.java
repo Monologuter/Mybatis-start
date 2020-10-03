@@ -3,7 +3,10 @@ package com.educy.dao;
 import com.educy.entity.tUser;
 import com.educy.util.MybatisUtils;
 import org.apache.ibatis.session.SqlSession;
+import org.apache.log4j.Logger;
 import org.junit.Test;
+
+
 
 /**
  * @Author 马小姐
@@ -13,6 +16,8 @@ import org.junit.Test;
  */
 
 public class UserDaoTest {
+
+    static Logger logger = Logger.getLogger(UserDaoTest.class);
 
 
     @Test
@@ -29,6 +34,16 @@ public class UserDaoTest {
         tUser user1 = mapper1.getUserById(1);
         System.out.println(user1);
         sqlSession.close();
+    }
+
+
+    @Test
+    public void testLog4j(){
+
+        logger.info("info:进入了log4j");
+        logger.debug("debug:进入了debug");
+        logger.error("error:");
+
     }
 
 }

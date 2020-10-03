@@ -4,10 +4,15 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 <!--    引入外部配置文件-->
-    <properties  resource="db.properties">
+    <properties  resource="db.properties"></properties>
 
+<!--    配置日志文件-->
+    <settings>
+<!--        标准的日志工厂-->
+<!--        <setting name="logImpl" value="STDOUT_LOGGING"/>-->
+        <setting name="logImpl" value="LOG4J"/>
 
-    </properties>
+    </settings>
 
 <!--    可以给实体类取别名-->
     <typeAliases>
