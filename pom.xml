@@ -54,8 +54,20 @@
             <version>4.13</version>
             <scope>test</scope>
         </dependency>
+
+
+        <!-- https://mvnrepository.com/artifact/com.github.pagehelper/pagehelper -->
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper</artifactId>
+            <version>5.1.11</version>
+        </dependency>
+
+
     </dependencies>
     <!--静态资源导出,，不管是java文件下还是resources文件下，都导出-->
+
+
     <build>
         <resources>
             <resource>
