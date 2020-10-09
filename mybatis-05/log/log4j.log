@@ -1,361 +1,86 @@
-2020-10-04 09:46:37,589 0      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 09:46:37,591 2      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 09:46:37,610 21     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 09:46:37,610 21     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 09:46:37,610 21     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 09:46:37,611 22     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 09:47:23,438 0      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 09:47:23,439 1      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 09:47:23,458 20     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 09:47:23,459 21     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 09:47:23,459 21     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 09:47:23,459 21     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 09:47:23,548 110    [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Opening JDBC Connection
-2020-10-04 09:47:23,820 382    [           main] DEBUG source.pooled.PooledDataSource  - Created connection 1106131243.
-2020-10-04 09:47:23,820 382    [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Setting autocommit to false on JDBC Connection [com.mysql.jdbc.JDBC4Connection@41ee392b]
-2020-10-04 09:47:23,826 388    [           main] DEBUG .dao.UserMapper.getUserByLimit  - ==>  Preparing: select * from user limit ? , ?
-2020-10-04 09:47:23,854 416    [           main] DEBUG .dao.UserMapper.getUserByLimit  - ==> Parameters: 0(Integer), 7(Integer)
-2020-10-04 09:47:23,873 435    [           main] DEBUG .dao.UserMapper.getUserByLimit  - <==      Total: 7
-2020-10-04 09:47:23,876 438    [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Resetting autocommit to true on JDBC Connection [com.mysql.jdbc.JDBC4Connection@41ee392b]
-2020-10-04 09:47:23,879 441    [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Closing JDBC Connection [com.mysql.jdbc.JDBC4Connection@41ee392b]
-2020-10-04 09:47:23,879 441    [           main] DEBUG source.pooled.PooledDataSource  - Returned connection 1106131243 to pool.
-2020-10-04 09:52:51,884 0      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 09:52:51,885 1      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 09:53:22,774 0      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 09:53:22,775 1      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 09:53:22,793 19     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 09:53:22,793 19     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 09:53:22,794 20     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 09:53:22,794 20     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 09:53:22,834 60     [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Opening JDBC Connection
-2020-10-04 09:53:23,114 340    [           main] DEBUG source.pooled.PooledDataSource  - Created connection 255944888.
-2020-10-04 09:53:23,115 341    [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Setting autocommit to false on JDBC Connection [com.mysql.jdbc.JDBC4Connection@f4168b8]
-2020-10-04 09:53:23,122 348    [           main] DEBUG ucy.dao.UserMapper.getUserList  - ==>  Preparing: select * from user
-2020-10-04 09:53:23,159 385    [           main] DEBUG ucy.dao.UserMapper.getUserList  - ==> Parameters: 
-2020-10-04 09:53:23,201 427    [           main] DEBUG ucy.dao.UserMapper.getUserList  - <==      Total: 52
-2020-10-04 09:53:23,206 432    [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Resetting autocommit to true on JDBC Connection [com.mysql.jdbc.JDBC4Connection@f4168b8]
-2020-10-04 09:53:23,209 435    [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Closing JDBC Connection [com.mysql.jdbc.JDBC4Connection@f4168b8]
-2020-10-04 09:53:23,209 435    [           main] DEBUG source.pooled.PooledDataSource  - Returned connection 255944888 to pool.
-2020-10-04 09:55:35,190 0      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 09:55:35,192 2      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 09:55:35,227 37     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 09:55:35,227 37     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 09:55:35,227 37     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 09:55:35,228 38     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 09:59:07,643 212453 [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Opening JDBC Connection
-2020-10-04 10:12:22,634 0      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 10:12:22,635 1      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 10:12:22,656 22     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:12:22,656 22     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:12:22,656 22     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:12:22,656 22     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:12:22,701 67     [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Opening JDBC Connection
-2020-10-04 10:12:22,948 314    [           main] DEBUG source.pooled.PooledDataSource  - Created connection 2007331442.
-2020-10-04 10:12:22,951 317    [           main] DEBUG ucy.dao.UserMapper.getUserById  - ==>  Preparing: select * from user where id = ? and name=?
-2020-10-04 10:12:22,973 339    [           main] DEBUG ucy.dao.UserMapper.getUserById  - ==> Parameters: 41(Integer), 陈亚(String)
-2020-10-04 10:12:55,143 0      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 10:12:55,145 2      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 10:12:55,166 23     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:12:55,166 23     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:12:55,166 23     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:12:55,166 23     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:12:55,214 71     [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Opening JDBC Connection
-2020-10-04 10:12:55,514 371    [           main] DEBUG source.pooled.PooledDataSource  - Created connection 2007331442.
-2020-10-04 10:12:55,519 376    [           main] DEBUG ucy.dao.UserMapper.getUserById  - ==>  Preparing: select * from user where id = ? and name=?
-2020-10-04 10:12:55,554 411    [           main] DEBUG ucy.dao.UserMapper.getUserById  - ==> Parameters: 46(Integer), 老王(String)
-2020-10-04 10:13:27,558 0      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 10:13:27,559 1      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 10:13:27,580 22     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:13:27,580 22     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:13:27,580 22     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:13:27,580 22     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:13:48,387 0      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 10:13:48,389 2      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 10:13:48,407 20     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:13:48,407 20     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:13:48,407 20     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:13:48,407 20     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:13:48,449 62     [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Opening JDBC Connection
-2020-10-04 10:13:48,715 328    [           main] DEBUG source.pooled.PooledDataSource  - Created connection 2007331442.
-2020-10-04 10:13:48,718 331    [           main] DEBUG ucy.dao.UserMapper.getUserById  - ==>  Preparing: select * from user where id = ? and username=?
-2020-10-04 10:13:48,742 355    [           main] DEBUG ucy.dao.UserMapper.getUserById  - ==> Parameters: 46(Integer), 老王(String)
-2020-10-04 10:13:48,756 369    [           main] DEBUG ucy.dao.UserMapper.getUserById  - <==      Total: 1
-2020-10-04 10:13:48,759 372    [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Closing JDBC Connection [com.mysql.jdbc.JDBC4Connection@77a57272]
-2020-10-04 10:13:48,760 373    [           main] DEBUG source.pooled.PooledDataSource  - Returned connection 2007331442 to pool.
-2020-10-04 10:13:58,607 0      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 10:13:58,609 2      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 10:13:58,634 27     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:13:58,634 27     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:13:58,634 27     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:13:58,634 27     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:13:58,682 75     [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Opening JDBC Connection
-2020-10-04 10:13:58,926 319    [           main] DEBUG source.pooled.PooledDataSource  - Created connection 2007331442.
-2020-10-04 10:13:58,930 323    [           main] DEBUG ucy.dao.UserMapper.getUserById  - ==>  Preparing: select * from user where id = ? and username=?
-2020-10-04 10:13:58,956 349    [           main] DEBUG ucy.dao.UserMapper.getUserById  - ==> Parameters: 41(Integer), 老王(String)
-2020-10-04 10:13:58,969 362    [           main] DEBUG ucy.dao.UserMapper.getUserById  - <==      Total: 0
-2020-10-04 10:13:58,970 363    [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Closing JDBC Connection [com.mysql.jdbc.JDBC4Connection@77a57272]
-2020-10-04 10:13:58,970 363    [           main] DEBUG source.pooled.PooledDataSource  - Returned connection 2007331442 to pool.
-2020-10-04 10:15:32,034 0      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 10:15:32,036 2      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 10:15:32,061 27     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:15:32,062 28     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:15:32,062 28     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:15:32,062 28     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:15:32,115 81     [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Opening JDBC Connection
-2020-10-04 10:15:32,369 335    [           main] DEBUG source.pooled.PooledDataSource  - Created connection 2007331442.
-2020-10-04 10:15:32,372 338    [           main] DEBUG ucy.dao.UserMapper.getUserById  - ==>  Preparing: select * from user where id = ? and username=?
-2020-10-04 10:15:32,395 361    [           main] DEBUG ucy.dao.UserMapper.getUserById  - ==> Parameters: 41(Integer), 老王(String)
-2020-10-04 10:15:32,406 372    [           main] DEBUG ucy.dao.UserMapper.getUserById  - <==      Total: 0
-2020-10-04 10:15:32,406 372    [           main] DEBUG ucy.dao.UserMapper.getUserById  - ==>  Preparing: select * from user where id = ? and username=?
-2020-10-04 10:15:32,407 373    [           main] DEBUG ucy.dao.UserMapper.getUserById  - ==> Parameters: 46(Integer), 老王(String)
-2020-10-04 10:15:32,412 378    [           main] DEBUG ucy.dao.UserMapper.getUserById  - <==      Total: 1
-2020-10-04 10:15:32,414 380    [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Closing JDBC Connection [com.mysql.jdbc.JDBC4Connection@77a57272]
-2020-10-04 10:15:32,414 380    [           main] DEBUG source.pooled.PooledDataSource  - Returned connection 2007331442 to pool.
-2020-10-04 10:21:49,158 0      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 10:21:49,160 2      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 10:21:49,184 26     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:21:49,184 26     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:21:49,184 26     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:21:49,185 27     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:21:49,228 70     [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Opening JDBC Connection
-2020-10-04 10:21:49,464 306    [           main] DEBUG source.pooled.PooledDataSource  - Created connection 1313532469.
-2020-10-04 10:21:49,468 310    [           main] DEBUG m.educy.dao.UserMapper.addUser  - ==>  Preparing: insert into user(id , username , birthday ,sex , address) values(? , ?,?,?,?)
-2020-10-04 10:21:49,497 339    [           main] DEBUG m.educy.dao.UserMapper.addUser  - ==> Parameters: 99(Integer), 陈亚(String), 2020-10-04 10:21:48.953(Timestamp), 男(String), 江苏省(String)
-2020-10-04 10:22:29,946 0      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 10:22:29,947 1      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 10:22:29,968 22     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:22:29,968 22     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:22:29,968 22     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:22:29,968 22     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:22:30,017 71     [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Opening JDBC Connection
-2020-10-04 10:22:30,263 317    [           main] DEBUG source.pooled.PooledDataSource  - Created connection 1313532469.
-2020-10-04 10:22:30,266 320    [           main] DEBUG m.educy.dao.UserMapper.addUser  - ==>  Preparing: insert into user( username , birthday ,sex , address) values ( ?,?,?,?)
-2020-10-04 10:22:30,299 353    [           main] DEBUG m.educy.dao.UserMapper.addUser  - ==> Parameters: 陈亚(String), 2020-10-04 10:22:29.73(Timestamp), 男(String), 江苏省(String)
-2020-10-04 10:25:31,850 0      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 10:25:31,851 1      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 10:25:31,870 20     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:25:31,871 21     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:25:31,871 21     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:25:31,871 21     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:25:31,918 68     [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Opening JDBC Connection
-2020-10-04 10:25:32,152 302    [           main] DEBUG source.pooled.PooledDataSource  - Created connection 1313532469.
-2020-10-04 10:25:32,155 305    [           main] DEBUG m.educy.dao.UserMapper.addUser  - ==>  Preparing: insert into user( username , birthday ,sex , address) values ( ?,?,?,?)
-2020-10-04 10:25:32,185 335    [           main] DEBUG m.educy.dao.UserMapper.addUser  - ==> Parameters: 陈亚(String), 2020-10-04 10:25:31.66(Timestamp), 男(String), 江苏省(String)
-2020-10-04 10:28:05,810 0      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 10:28:05,812 2      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 10:28:05,832 22     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:28:05,832 22     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:28:05,832 22     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:28:05,832 22     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:28:05,879 69     [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Opening JDBC Connection
-2020-10-04 10:28:06,133 323    [           main] DEBUG source.pooled.PooledDataSource  - Created connection 1313532469.
-2020-10-04 10:28:06,136 326    [           main] DEBUG m.educy.dao.UserMapper.addUser  - ==>  Preparing: insert into user ( username , birthday, sex,address) values (?,? ,? , ?)
-2020-10-04 10:28:06,170 360    [           main] DEBUG m.educy.dao.UserMapper.addUser  - ==> Parameters: 陈亚(String), 2020-10-04 10:28:05.61(Timestamp), 男(String), 江苏省(String)
-2020-10-04 10:28:58,529 0      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 10:28:58,531 2      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 10:28:58,550 21     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:28:58,550 21     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:28:58,550 21     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:28:58,550 21     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:28:58,591 62     [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Opening JDBC Connection
-2020-10-04 10:28:58,811 282    [           main] DEBUG source.pooled.PooledDataSource  - Created connection 1313532469.
-2020-10-04 10:28:58,815 286    [           main] DEBUG m.educy.dao.UserMapper.addUser  - ==>  Preparing: insert into user ( username , birthday, sex,address) values (?,? ,? , ?)
-2020-10-04 10:28:58,848 319    [           main] DEBUG m.educy.dao.UserMapper.addUser  - ==> Parameters: 陈亚(String), 2020-10-04 10:28:58.325(Timestamp), 男(String), 江苏省(String)
-2020-10-04 10:29:31,072 0      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 10:29:31,073 1      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 10:29:31,093 21     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:29:31,093 21     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:29:31,094 22     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:29:31,094 22     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:29:31,140 68     [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Opening JDBC Connection
-2020-10-04 10:29:31,381 309    [           main] DEBUG source.pooled.PooledDataSource  - Created connection 1313532469.
-2020-10-04 10:29:31,384 312    [           main] DEBUG m.educy.dao.UserMapper.addUser  - ==>  Preparing: insert into user ( username , birthday, sex,address) values (?,? ,? , ?)
-2020-10-04 10:29:31,409 337    [           main] DEBUG m.educy.dao.UserMapper.addUser  - ==> Parameters: 陈亚(String), 2020-10-04 10:29:30.865(Timestamp), 男(String), 江苏省(String)
-2020-10-04 10:33:02,140 0      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 10:33:02,142 2      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 10:33:02,163 23     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:33:02,163 23     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:33:02,163 23     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:33:02,163 23     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:33:02,213 73     [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Opening JDBC Connection
-2020-10-04 10:33:02,475 335    [           main] DEBUG source.pooled.PooledDataSource  - Created connection 1313532469.
-2020-10-04 10:33:02,478 338    [           main] DEBUG m.educy.dao.UserMapper.addUser  - ==>  Preparing: insert into user ( username , birthday, sex,address) values (?,? ,? , ?)
-2020-10-04 10:33:02,517 377    [           main] DEBUG m.educy.dao.UserMapper.addUser  - ==> Parameters: 陈亚(String), 2020-10-04 10:33:01.893(Timestamp), 男(String), 江苏省(String)
-2020-10-04 10:33:18,536 0      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 10:33:18,538 2      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 10:33:18,557 21     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:33:18,557 21     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:33:18,557 21     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:33:18,557 21     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:33:18,606 70     [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Opening JDBC Connection
-2020-10-04 10:33:18,858 322    [           main] DEBUG source.pooled.PooledDataSource  - Created connection 1313532469.
-2020-10-04 10:33:18,861 325    [           main] DEBUG m.educy.dao.UserMapper.addUser  - ==>  Preparing: insert into user ( username , birthday, sex,address) values (?,? ,? , ?)
-2020-10-04 10:33:18,892 356    [           main] DEBUG m.educy.dao.UserMapper.addUser  - ==> Parameters: 陈亚99999(String), 2020-10-04 10:33:18.335(Timestamp), 男(String), 江苏省(String)
-2020-10-04 10:34:50,637 0      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 10:34:50,638 1      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 10:34:50,658 21     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:34:50,658 21     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:34:50,658 21     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:34:50,658 21     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:34:50,704 67     [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Opening JDBC Connection
-2020-10-04 10:34:50,953 316    [           main] DEBUG source.pooled.PooledDataSource  - Created connection 1313532469.
-2020-10-04 10:34:50,956 319    [           main] DEBUG m.educy.dao.UserMapper.addUser  - ==>  Preparing: insert into user ( username , birthday, sex,address) values (?,? ,? , ?)
-2020-10-04 10:34:50,987 350    [           main] DEBUG m.educy.dao.UserMapper.addUser  - ==> Parameters: 陈亚(String), 2020-10-04 10:34:50.435(Timestamp), 男(String), 江苏省(String)
-2020-10-04 10:37:44,710 0      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 10:37:44,712 2      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 10:37:44,732 22     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:37:44,732 22     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:37:44,732 22     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:37:44,733 23     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:37:44,781 71     [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Opening JDBC Connection
-2020-10-04 10:37:45,017 307    [           main] DEBUG source.pooled.PooledDataSource  - Created connection 1313532469.
-2020-10-04 10:37:45,021 311    [           main] DEBUG m.educy.dao.UserMapper.addUser  - ==>  Preparing: insert into user (username ,birthday, sex,address) value (?,? ,? , ?)
-2020-10-04 10:37:45,046 336    [           main] DEBUG m.educy.dao.UserMapper.addUser  - ==> Parameters: 陈亚(String), 2020-10-04 10:37:44.501(Timestamp), 男(String), 江苏省(String)
-2020-10-04 10:41:57,995 0      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 10:41:57,997 2      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 10:41:58,016 21     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:41:58,016 21     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:41:58,017 22     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:41:58,017 22     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:42:11,012 0      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 10:42:11,013 1      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 10:42:11,033 21     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:42:11,033 21     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:42:11,033 21     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:42:11,033 21     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:42:11,078 66     [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Opening JDBC Connection
-2020-10-04 10:42:11,348 336    [           main] DEBUG source.pooled.PooledDataSource  - Created connection 1313532469.
-2020-10-04 10:42:11,351 339    [           main] DEBUG m.educy.dao.UserMapper.addUser  - ==>  Preparing: insert into user (username ,birthday, sex,address) value (?,? ,? , ?)
-2020-10-04 10:42:11,384 372    [           main] DEBUG m.educy.dao.UserMapper.addUser  - ==> Parameters: 陈亚(String), 2020-10-04 10:42:10.807(Timestamp), 男(String), 江苏省(String)
-2020-10-04 10:43:20,009 0      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 10:43:20,011 2      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 10:43:20,032 23     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:43:20,032 23     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:43:20,033 24     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:43:20,033 24     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 10:43:20,079 70     [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Opening JDBC Connection
-2020-10-04 10:43:20,332 323    [           main] DEBUG source.pooled.PooledDataSource  - Created connection 1313532469.
-2020-10-04 10:43:20,336 327    [           main] DEBUG m.educy.dao.UserMapper.addUser  - ==>  Preparing: insert into user (username ,birthday, sex,address) value (?,? ,? , ?)
-2020-10-04 10:43:20,368 359    [           main] DEBUG m.educy.dao.UserMapper.addUser  - ==> Parameters: 陈亚hhhh(String), 2020-10-04 10:43:19.787(Timestamp), 男(String), 江苏省(String)
-2020-10-04 16:47:52,740 0      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 16:47:52,742 2      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 16:47:52,766 26     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 16:47:52,766 26     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 16:47:52,766 26     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 16:47:52,767 27     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 16:47:52,823 83     [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Opening JDBC Connection
-2020-10-04 16:47:53,101 361    [           main] DEBUG source.pooled.PooledDataSource  - Created connection 1313532469.
-2020-10-04 16:47:53,104 364    [           main] DEBUG m.educy.dao.UserMapper.addUser  - ==>  Preparing: insert into user (username ,birthday, sex,address) value (?,? ,? , ?)
-2020-10-04 16:47:53,140 400    [           main] DEBUG m.educy.dao.UserMapper.addUser  - ==> Parameters: 陈亚hhhh(String), 2020-10-04 16:47:52.505(Timestamp), 男(String), 江苏省(String)
-2020-10-04 16:52:57,893 0      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 16:52:57,895 2      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 16:52:57,915 22     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 16:52:57,916 23     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 16:52:57,916 23     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 16:52:57,916 23     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 16:52:57,963 70     [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Opening JDBC Connection
-2020-10-04 16:52:58,242 349    [           main] DEBUG source.pooled.PooledDataSource  - Created connection 1313532469.
-2020-10-04 16:52:58,246 353    [           main] DEBUG m.educy.dao.UserMapper.addUser  - ==>  Preparing: insert into user (username ,birthday, sex,address) value (?,? ,? , ?)
-2020-10-04 16:52:58,285 392    [           main] DEBUG m.educy.dao.UserMapper.addUser  - ==> Parameters: 陈亚hhhh(String), 2020-10-04 16:52:57.622(Timestamp), 男(String), 江苏省(String)
-2020-10-04 16:52:58,293 400    [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Closing JDBC Connection [com.mysql.jdbc.JDBC4Connection@4e4aea35]
-2020-10-04 16:52:58,293 400    [           main] DEBUG source.pooled.PooledDataSource  - Returned connection 1313532469 to pool.
-2020-10-04 16:54:20,197 0      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 16:54:20,199 2      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 16:54:20,228 31     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 16:54:20,228 31     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 16:54:20,229 32     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 16:54:20,229 32     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 16:54:20,292 95     [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Opening JDBC Connection
-2020-10-04 16:54:20,615 418    [           main] DEBUG source.pooled.PooledDataSource  - Created connection 1313532469.
-2020-10-04 16:54:20,619 422    [           main] DEBUG m.educy.dao.UserMapper.addUser  - ==>  Preparing: insert into user (username ,birthday, sex,address) value (?,? ,? , ?)
-2020-10-04 16:54:20,656 459    [           main] DEBUG m.educy.dao.UserMapper.addUser  - ==> Parameters: 陈亚6666(String), 2020-10-04 16:54:19.934(Timestamp), 男(String), 江苏省(String)
-2020-10-04 16:54:20,663 466    [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Closing JDBC Connection [com.mysql.jdbc.JDBC4Connection@4e4aea35]
-2020-10-04 16:54:20,663 466    [           main] DEBUG source.pooled.PooledDataSource  - Returned connection 1313532469 to pool.
-2020-10-04 16:54:40,888 0      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 16:54:40,890 2      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 16:54:40,923 35     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 16:54:40,923 35     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 16:54:40,923 35     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 16:54:40,923 35     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 16:54:40,985 97     [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Opening JDBC Connection
-2020-10-04 16:54:41,280 392    [           main] DEBUG source.pooled.PooledDataSource  - Created connection 1313532469.
-2020-10-04 16:54:41,283 395    [           main] DEBUG m.educy.dao.UserMapper.addUser  - ==>  Preparing: insert into user (username ,birthday, sex,address) value (?,? ,? , ?)
-2020-10-04 16:54:41,321 433    [           main] DEBUG m.educy.dao.UserMapper.addUser  - ==> Parameters: 陈亚6666(String), 2020-10-04 16:54:40.614(Timestamp), 男(String), 江苏省(String)
-2020-10-04 16:54:55,419 0      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 16:54:55,421 2      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 16:54:55,451 32     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 16:54:55,451 32     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 16:54:55,451 32     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 16:54:55,451 32     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 16:54:55,518 99     [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Opening JDBC Connection
-2020-10-04 16:54:55,815 396    [           main] DEBUG source.pooled.PooledDataSource  - Created connection 1313532469.
-2020-10-04 16:54:55,820 401    [           main] DEBUG m.educy.dao.UserMapper.addUser  - ==>  Preparing: insert into user (username ,birthday, sex,address) value (?,? ,? , ?)
-2020-10-04 16:54:55,860 441    [           main] DEBUG m.educy.dao.UserMapper.addUser  - ==> Parameters: 陈亚6666(String), 2020-10-04 16:54:55.174(Timestamp), 男(String), 江苏省(String)
-2020-10-04 16:55:35,281 0      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 16:55:35,282 1      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 16:55:35,304 23     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 16:55:35,304 23     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 16:55:35,304 23     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 16:55:35,304 23     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 16:55:35,357 76     [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Opening JDBC Connection
-2020-10-04 16:55:35,677 396    [           main] DEBUG source.pooled.PooledDataSource  - Created connection 1313532469.
-2020-10-04 16:55:35,680 399    [           main] DEBUG m.educy.dao.UserMapper.addUser  - ==>  Preparing: insert into user (username ,birthday, sex,address) value (?,? ,? , ?)
-2020-10-04 16:55:35,716 435    [           main] DEBUG m.educy.dao.UserMapper.addUser  - ==> Parameters: 陈亚6666(String), 2020-10-04 16:55:35.077(Timestamp), 男(String), 江苏省(String)
-2020-10-04 16:55:47,708 0      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 16:55:47,711 3      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 16:55:47,742 34     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 16:55:47,743 35     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 16:55:47,743 35     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 16:55:47,743 35     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 16:55:47,809 101    [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Opening JDBC Connection
-2020-10-04 16:55:48,126 418    [           main] DEBUG source.pooled.PooledDataSource  - Created connection 1313532469.
-2020-10-04 16:55:48,130 422    [           main] DEBUG m.educy.dao.UserMapper.addUser  - ==>  Preparing: insert into user (username ,birthday, sex,address) value (?,? ,? , ?)
-2020-10-04 16:55:48,163 455    [           main] DEBUG m.educy.dao.UserMapper.addUser  - ==> Parameters: 陈亚6666(String), 2020-10-04 16:55:47.44(Timestamp), 男(String), 江苏省(String)
-2020-10-04 16:56:03,908 0      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 16:56:03,910 2      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 16:56:03,938 30     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 16:56:03,939 31     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 16:56:03,939 31     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 16:56:03,939 31     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 16:56:04,023 115    [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Opening JDBC Connection
-2020-10-04 16:56:04,368 460    [           main] DEBUG source.pooled.PooledDataSource  - Created connection 1313532469.
-2020-10-04 16:56:04,373 465    [           main] DEBUG m.educy.dao.UserMapper.addUser  - ==>  Preparing: insert into user (username ,birthday, sex,address) value (?,? ,? , ?)
-2020-10-04 16:56:04,407 499    [           main] DEBUG m.educy.dao.UserMapper.addUser  - ==> Parameters: 陈亚6666(String), 2020-10-04 16:56:03.685(Timestamp), 男(String), 江苏省(String)
-2020-10-04 16:56:04,414 506    [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Closing JDBC Connection [com.mysql.jdbc.JDBC4Connection@4e4aea35]
-2020-10-04 16:56:04,414 506    [           main] DEBUG source.pooled.PooledDataSource  - Returned connection 1313532469 to pool.
-2020-10-04 17:03:51,343 0      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 17:03:51,345 2      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 17:03:51,370 27     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 17:03:51,370 27     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 17:03:51,370 27     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 17:03:51,370 27     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 17:03:51,420 77     [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Opening JDBC Connection
-2020-10-04 17:03:51,686 343    [           main] DEBUG source.pooled.PooledDataSource  - Created connection 1313532469.
-2020-10-04 17:03:51,690 347    [           main] DEBUG ducy.dao.UserMapper.updateUser  - ==>  Preparing: update user set username=? where id = ?
-2020-10-04 17:03:51,716 373    [           main] DEBUG ducy.dao.UserMapper.updateUser  - ==> Parameters: 陈亚9999(String), 41(Integer)
-2020-10-04 17:03:51,723 380    [           main] DEBUG ducy.dao.UserMapper.updateUser  - <==    Updates: 1
-2020-10-04 17:03:51,724 381    [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Closing JDBC Connection [com.mysql.jdbc.JDBC4Connection@4e4aea35]
-2020-10-04 17:03:51,724 381    [           main] DEBUG source.pooled.PooledDataSource  - Returned connection 1313532469 to pool.
-2020-10-04 17:06:47,536 0      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 17:06:47,538 2      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 17:06:47,559 23     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 17:06:47,559 23     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 17:06:47,560 24     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 17:06:47,560 24     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 17:06:47,611 75     [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Opening JDBC Connection
-2020-10-04 17:06:47,933 397    [           main] DEBUG source.pooled.PooledDataSource  - Created connection 339924917.
-2020-10-04 17:06:47,938 402    [           main] DEBUG ducy.dao.UserMapper.deleteUser  - ==>  Preparing: delete from user where id = ?
-2020-10-04 17:06:47,977 441    [           main] DEBUG ducy.dao.UserMapper.deleteUser  - ==> Parameters: 41(Integer)
-2020-10-04 17:07:12,464 0      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 17:07:12,466 2      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-2020-10-04 17:07:12,499 35     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 17:07:12,499 35     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 17:07:12,499 35     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 17:07:12,499 35     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
-2020-10-04 17:07:12,570 106    [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Opening JDBC Connection
-2020-10-04 17:07:12,858 394    [           main] DEBUG source.pooled.PooledDataSource  - Created connection 339924917.
-2020-10-04 17:07:12,863 399    [           main] DEBUG ducy.dao.UserMapper.deleteUser  - ==>  Preparing: delete from user where id = ?
-2020-10-04 17:07:12,906 442    [           main] DEBUG ducy.dao.UserMapper.deleteUser  - ==> Parameters: 106(Integer)
-2020-10-04 17:07:12,917 453    [           main] DEBUG ducy.dao.UserMapper.deleteUser  - <==    Updates: 1
-2020-10-04 17:07:12,918 454    [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Closing JDBC Connection [com.mysql.jdbc.JDBC4Connection@1442d7b5]
-2020-10-04 17:07:12,918 454    [           main] DEBUG source.pooled.PooledDataSource  - Returned connection 339924917 to pool.
+2020-10-08 16:13:02,623 0      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+2020-10-08 16:13:02,625 2      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+2020-10-08 16:13:02,649 26     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
+2020-10-08 16:13:02,649 26     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
+2020-10-08 16:13:02,649 26     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
+2020-10-08 16:13:02,649 26     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
+2020-10-08 16:13:02,711 88     [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Opening JDBC Connection
+2020-10-08 16:13:03,037 414    [           main] DEBUG source.pooled.PooledDataSource  - Created connection 852445367.
+2020-10-08 16:13:03,042 419    [           main] DEBUG m.educy.dao.UserMapper.addUser  - ==>  Preparing: insert into user (username ,birthday, sex,address) value (?,? ,? , ?)
+2020-10-08 16:13:03,096 473    [           main] DEBUG m.educy.dao.UserMapper.addUser  - ==> Parameters: 陈亚6666(String), 2020-10-08 16:13:02.384(Timestamp), 男(String), 江苏省(String)
+2020-10-08 16:13:03,111 488    [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Closing JDBC Connection [com.mysql.jdbc.JDBC4Connection@32cf48b7]
+2020-10-08 16:13:03,112 489    [           main] DEBUG source.pooled.PooledDataSource  - Returned connection 852445367 to pool.
+2020-10-08 16:13:03,114 491    [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Opening JDBC Connection
+2020-10-08 16:13:03,114 491    [           main] DEBUG source.pooled.PooledDataSource  - Checked out connection 852445367 from pool.
+2020-10-08 16:13:03,114 491    [           main] DEBUG ducy.dao.UserMapper.updateUser  - ==>  Preparing: update user set username=? where id = ?
+2020-10-08 16:13:03,115 492    [           main] DEBUG ducy.dao.UserMapper.updateUser  - ==> Parameters: 陈亚9999(String), 41(Integer)
+2020-10-08 16:13:03,127 504    [           main] DEBUG ducy.dao.UserMapper.updateUser  - <==    Updates: 1
+2020-10-08 16:13:03,127 504    [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Closing JDBC Connection [com.mysql.jdbc.JDBC4Connection@32cf48b7]
+2020-10-08 16:13:03,128 505    [           main] DEBUG source.pooled.PooledDataSource  - Returned connection 852445367 to pool.
+2020-10-08 16:13:03,128 505    [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Opening JDBC Connection
+2020-10-08 16:13:03,129 506    [           main] DEBUG source.pooled.PooledDataSource  - Checked out connection 852445367 from pool.
+2020-10-08 16:13:03,129 506    [           main] DEBUG ducy.dao.UserMapper.deleteUser  - ==>  Preparing: delete from user where id = ?
+2020-10-08 16:13:03,129 506    [           main] DEBUG ducy.dao.UserMapper.deleteUser  - ==> Parameters: 106(Integer)
+2020-10-08 16:13:03,135 512    [           main] DEBUG ducy.dao.UserMapper.deleteUser  - <==    Updates: 0
+2020-10-08 16:13:03,135 512    [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Closing JDBC Connection [com.mysql.jdbc.JDBC4Connection@32cf48b7]
+2020-10-08 16:13:03,135 512    [           main] DEBUG source.pooled.PooledDataSource  - Returned connection 852445367 to pool.
+2020-10-08 16:13:03,139 516    [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Opening JDBC Connection
+2020-10-08 16:13:03,140 517    [           main] DEBUG source.pooled.PooledDataSource  - Checked out connection 852445367 from pool.
+2020-10-08 16:13:03,143 520    [           main] DEBUG ucy.dao.UserMapper.getUserById  - ==>  Preparing: select * from user where id = ? and username=?
+2020-10-08 16:13:03,144 521    [           main] DEBUG ucy.dao.UserMapper.getUserById  - ==> Parameters: 41(Integer), 老王(String)
+2020-10-08 16:13:03,165 542    [           main] DEBUG ucy.dao.UserMapper.getUserById  - <==      Total: 0
+2020-10-08 16:13:03,165 542    [           main] DEBUG ucy.dao.UserMapper.getUserById  - ==>  Preparing: select * from user where id = ? and username=?
+2020-10-08 16:13:03,166 543    [           main] DEBUG ucy.dao.UserMapper.getUserById  - ==> Parameters: 46(Integer), 老王(String)
+2020-10-08 16:13:03,178 555    [           main] DEBUG ucy.dao.UserMapper.getUserById  - <==      Total: 1
+2020-10-08 16:13:03,183 560    [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Closing JDBC Connection [com.mysql.jdbc.JDBC4Connection@32cf48b7]
+2020-10-08 16:13:03,184 561    [           main] DEBUG source.pooled.PooledDataSource  - Returned connection 852445367 to pool.
+2020-10-08 16:13:03,184 561    [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Opening JDBC Connection
+2020-10-08 16:13:03,184 561    [           main] DEBUG source.pooled.PooledDataSource  - Checked out connection 852445367 from pool.
+2020-10-08 16:13:03,185 562    [           main] DEBUG ucy.dao.UserMapper.getUserList  - ==>  Preparing: select * from user
+2020-10-08 16:13:03,185 562    [           main] DEBUG ucy.dao.UserMapper.getUserList  - ==> Parameters: 
+2020-10-08 16:13:03,205 582    [           main] DEBUG ucy.dao.UserMapper.getUserList  - <==      Total: 27
+2020-10-08 16:13:03,206 583    [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Closing JDBC Connection [com.mysql.jdbc.JDBC4Connection@32cf48b7]
+2020-10-08 16:13:03,206 583    [           main] DEBUG source.pooled.PooledDataSource  - Returned connection 852445367 to pool.
+2020-10-09 16:55:22,758 0      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+2020-10-09 16:55:22,760 2      [           main] DEBUG ache.ibatis.logging.LogFactory  - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+2020-10-09 16:55:22,784 26     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
+2020-10-09 16:55:22,784 26     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
+2020-10-09 16:55:22,784 26     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
+2020-10-09 16:55:22,784 26     [           main] DEBUG source.pooled.PooledDataSource  - PooledDataSource forcefully closed/removed all connections.
+2020-10-09 16:55:22,839 81     [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Opening JDBC Connection
+2020-10-09 16:55:23,124 366    [           main] DEBUG source.pooled.PooledDataSource  - Created connection 852445367.
+2020-10-09 16:55:23,128 370    [           main] DEBUG m.educy.dao.UserMapper.addUser  - ==>  Preparing: insert into user (username ,birthday, sex,address) value (?,? ,? , ?)
+2020-10-09 16:55:23,165 407    [           main] DEBUG m.educy.dao.UserMapper.addUser  - ==> Parameters: 陈亚6666(String), 2020-10-09 16:55:22.493(Timestamp), 男(String), 江苏省(String)
+2020-10-09 16:55:23,171 413    [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Closing JDBC Connection [com.mysql.jdbc.JDBC4Connection@32cf48b7]
+2020-10-09 16:55:23,171 413    [           main] DEBUG source.pooled.PooledDataSource  - Returned connection 852445367 to pool.
+2020-10-09 16:55:23,172 414    [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Opening JDBC Connection
+2020-10-09 16:55:23,172 414    [           main] DEBUG source.pooled.PooledDataSource  - Checked out connection 852445367 from pool.
+2020-10-09 16:55:23,172 414    [           main] DEBUG ducy.dao.UserMapper.updateUser  - ==>  Preparing: update user set username=? where id = ?
+2020-10-09 16:55:23,173 415    [           main] DEBUG ducy.dao.UserMapper.updateUser  - ==> Parameters: 陈亚9999(String), 41(Integer)
+2020-10-09 16:55:23,179 421    [           main] DEBUG ducy.dao.UserMapper.updateUser  - <==    Updates: 1
+2020-10-09 16:55:23,179 421    [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Closing JDBC Connection [com.mysql.jdbc.JDBC4Connection@32cf48b7]
+2020-10-09 16:55:23,179 421    [           main] DEBUG source.pooled.PooledDataSource  - Returned connection 852445367 to pool.
+2020-10-09 16:55:23,180 422    [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Opening JDBC Connection
+2020-10-09 16:55:23,180 422    [           main] DEBUG source.pooled.PooledDataSource  - Checked out connection 852445367 from pool.
+2020-10-09 16:55:23,180 422    [           main] DEBUG ducy.dao.UserMapper.deleteUser  - ==>  Preparing: delete from user where id = ?
+2020-10-09 16:55:23,180 422    [           main] DEBUG ducy.dao.UserMapper.deleteUser  - ==> Parameters: 106(Integer)
+2020-10-09 16:55:23,185 427    [           main] DEBUG ducy.dao.UserMapper.deleteUser  - <==    Updates: 0
+2020-10-09 16:55:23,186 428    [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Closing JDBC Connection [com.mysql.jdbc.JDBC4Connection@32cf48b7]
+2020-10-09 16:55:23,186 428    [           main] DEBUG source.pooled.PooledDataSource  - Returned connection 852445367 to pool.
+2020-10-09 16:55:23,189 431    [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Opening JDBC Connection
+2020-10-09 16:55:23,189 431    [           main] DEBUG source.pooled.PooledDataSource  - Checked out connection 852445367 from pool.
+2020-10-09 16:55:23,193 435    [           main] DEBUG ucy.dao.UserMapper.getUserById  - ==>  Preparing: select * from user where id = ? and username=?
+2020-10-09 16:55:23,193 435    [           main] DEBUG ucy.dao.UserMapper.getUserById  - ==> Parameters: 41(Integer), 老王(String)
+2020-10-09 16:55:23,208 450    [           main] DEBUG ucy.dao.UserMapper.getUserById  - <==      Total: 0
+2020-10-09 16:55:23,209 451    [           main] DEBUG ucy.dao.UserMapper.getUserById  - ==>  Preparing: select * from user where id = ? and username=?
+2020-10-09 16:55:23,209 451    [           main] DEBUG ucy.dao.UserMapper.getUserById  - ==> Parameters: 46(Integer), 老王(String)
+2020-10-09 16:55:23,214 456    [           main] DEBUG ucy.dao.UserMapper.getUserById  - <==      Total: 1
+2020-10-09 16:55:23,217 459    [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Closing JDBC Connection [com.mysql.jdbc.JDBC4Connection@32cf48b7]
+2020-10-09 16:55:23,217 459    [           main] DEBUG source.pooled.PooledDataSource  - Returned connection 852445367 to pool.
+2020-10-09 16:55:23,217 459    [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Opening JDBC Connection
+2020-10-09 16:55:23,217 459    [           main] DEBUG source.pooled.PooledDataSource  - Checked out connection 852445367 from pool.
+2020-10-09 16:55:23,218 460    [           main] DEBUG ucy.dao.UserMapper.getUserList  - ==>  Preparing: select * from user
+2020-10-09 16:55:23,218 460    [           main] DEBUG ucy.dao.UserMapper.getUserList  - ==> Parameters: 
+2020-10-09 16:55:23,229 471    [           main] DEBUG ucy.dao.UserMapper.getUserList  - <==      Total: 28
+2020-10-09 16:55:23,230 472    [           main] DEBUG ansaction.jdbc.JdbcTransaction  - Closing JDBC Connection [com.mysql.jdbc.JDBC4Connection@32cf48b7]
+2020-10-09 16:55:23,230 472    [           main] DEBUG source.pooled.PooledDataSource  - Returned connection 852445367 to pool.

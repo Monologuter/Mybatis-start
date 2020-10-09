@@ -35,12 +35,11 @@ public class UserDaoTest {
         SqlSession sqlSession = MybatisUtils.getSqlSession();
 
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
-        User user = mapper.getUserById(41);
+        User user = mapper.getUserById(43);
         System.out.println(user);
 
         sqlSession.close();
     }
-
 
     @Test
     public void addUser(){
@@ -58,12 +57,8 @@ public class UserDaoTest {
 
         //提交事务   查询不需要提交事务 但是增删改必须要提交事务
         sqlSession.commit();
-
-
-
         sqlSession.close();
     }
-
 
 
 
@@ -73,7 +68,7 @@ public class UserDaoTest {
         SqlSession sqlSession = MybatisUtils.getSqlSession();
 
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
-        mapper.updateUser(new User(53,"陈亚","女" ,"常州市"));
+        mapper.updateUser(new User(102,"乔碧萝","女" ,"常州市"));
         sqlSession.commit();
         sqlSession.close();
     }
