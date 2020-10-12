@@ -1554,20 +1554,114 @@ MybatisTest.java
 ```
 
 ```java
-<select id="findActiveBlogLike"
-     resultType="Blog">
-  SELECT * FROM BLOG WHERE state = ‘ACTIVE’
-  <choose>
-    <when test="title != null">
-      AND title like #{title}
-    </when>
-    <when test="author != null and author.name != null">
-      AND author_name like #{author.name}
-    </when>
-    <otherwise>
-      AND featured = 1
-    </otherwise>
-  </choose>
-</select>
+BlogMapper.java
+  
+  
+//查询博客 choose
+ List<Blog> queryBlogChoose(Map map);
 ```
+
+
+
+```xml
+BlogMapper.xml
+
+<select id="queryBlogChoose"  parameterType="map"  resultType="Blog">
+        select * from blog
+        <where>
+            <choose>
+                <when test = "title!= null" >
+                    title = #{title}
+                </when>
+                <when test="author!= null">
+                   and author = #{author}
+                </when>
+                <otherwise>
+                   and views = #{views}
+                </otherwise>
+            </choose>
+        </where>
+    </select>
+```
+
+
+
+```java
+Test.java
+  
+    @Test
+    public  void queryBlogChoose(){
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        BlogMapper mapper = sqlSession.getMapper(BlogMapper.class);
+        HashMap hashMap = new HashMap ();
+//        hashMap.put("title","springboot");
+//        hashMap.put("author","狂神说");
+        hashMap.put("views",999);
+        List<Blog> blogs = mapper.queryBlogChoose(hashMap);
+        for (Blog blog : blogs){
+            System.out.println(blog);
+        }
+    }
+```
+
+![image-20201012152256358](/Users/mac/Library/Application Support/typora-user-images/image-20201012152256358.png)
+
+
+
+
+
+
+
+
+
+
+
+### 4、where
+
+__*where* 元素只会在子元素返回任何内容的情况下才插入 “WHERE” 子句。而且，若子句的开头为 “AND” 或 “OR”，*where* 元素也会将它们去除。__
+
+```xml
+ <select id="queryBlogIF" parameterType="map" resultType="Blog">
+        select  * from blog
+        <where>
+            <if test="title != null">
+                title = #{title}
+            </if>
+            <if test="author != null">
+                and author = #{author}
+            </if>
+        </where>
+    </select>
+```
+
+
+
+
+
+### 5、set
+
+```tex
+prefixOverrides 属性会忽略通过管道符分隔的文本序列（注意此例中的空格是必要的）。上述例子会移除所有 prefixOverrides 属性中指定的内容，并且插入 prefix 属性中指定的内容。
+
+用于动态更新语句的类似解决方案叫做 set。set 元素可以用于动态包含需要更新的列，忽略其它不更新的列。比如：
+```
+
+```xml
+<update id="updateAuthorIfNecessary">
+  update Author
+    <set>
+      <if test="username != null">username=#{username},</if>
+      <if test="password != null">password=#{password},</if>
+      <if test="email != null">email=#{email},</if>
+      <if test="bio != null">bio=#{bio}</if>
+    </set>
+  where id=#{id}
+</update>
+```
+
+```tex
+这个例子中，set 元素会动态地在行首插入 SET 关键字，并会删掉额外的逗号（这些逗号是在使用条件语句给列赋值时引入的）。
+```
+
+
 

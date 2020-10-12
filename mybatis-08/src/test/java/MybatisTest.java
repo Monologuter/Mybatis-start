@@ -44,7 +44,7 @@ public class MybatisTest {
         BlogMapper mapper = sqlSession.getMapper(BlogMapper.class);
         HashMap hashMap = new HashMap ();
 
-//        hashMap.put("title","spring");
+        hashMap.put("title","spring");
         hashMap.put("author","陈亚");
 
         List<Blog> blogs = mapper.queryBlogIF(hashMap);
@@ -53,4 +53,19 @@ public class MybatisTest {
         }
         sqlSession.close();
     }
+
+    @Test
+    public  void queryBlogChoose(){
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        BlogMapper mapper = sqlSession.getMapper(BlogMapper.class);
+        HashMap hashMap = new HashMap ();
+//        hashMap.put("title","springboot9999");
+//        hashMap.put("author","狂神说");
+        hashMap.put("views",999);
+        List<Blog> blogs = mapper.queryBlogChoose(hashMap);
+        for (Blog blog : blogs){
+            System.out.println(blog);
+        }
+    }
+
 }
