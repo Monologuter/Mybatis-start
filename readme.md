@@ -677,3 +677,360 @@ jndi：这个数据源的实现是为了能在如 Spring 或应用服务器这�
 子元素节点：数据源（dataSource）
 ```
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 七、多对一处理 重难点
+
+#### ①、sql环境的搭建
+
+```sql
+CREATE TABLE `student` (
+  `id` int(10) NOT NULL,
+  `name` varchar(30) DEFAULT NULL,
+  `tid` int(10) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fktid` (`tid`),
+  CONSTRAINT `fktid` FOREIGN KEY (`tid`) REFERENCES `teacher` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of student
+-- ----------------------------
+BEGIN;
+INSERT INTO `student` VALUES (1, '张三', 1);
+INSERT INTO `student` VALUES (2, '李四', 1);
+INSERT INTO `student` VALUES (3, '王五', 1);
+INSERT INTO `student` VALUES (4, '赵六', 1);
+INSERT INTO `student` VALUES (7, '田七', 1);
+
+
+CREATE TABLE `teacher` (
+  `id` int(10) NOT NULL,
+  `name` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of teacher
+-- ----------------------------
+BEGIN;
+INSERT INTO `teacher` VALUES (1, '陈亚');
+COMMIT;
+```
+
+#### ②、测试环境的搭建
+
+##### 第一步、导入lombok插件
+
+##### 第二步、建立实体类  Student.java   Teacher.java
+
+```java
+package com.educy.entity;
+
+import lombok.Data;
+
+/**
+ * @Author 马小姐
+ * @Date 2020-10-09 19:11
+ * @Version 1.0
+ * @Description:
+ */
+@Data
+public class Student {
+    private int id;
+    private String name;
+
+    //学生需要关联一个老师
+    private Teacher teacher;
+}
+```
+
+```java
+package com.educy.entity;
+
+import lombok.Data;
+
+import javax.swing.*;
+
+/**
+ * @Author 马小姐
+ * @Date 2020-10-09 19:14
+ * @Version 1.0
+ * @Description:
+ */
+@Data
+public class Teacher {
+    private int id;
+    private String name;
+}
+
+```
+
+
+
+##### 第三步、建立Mapper接口
+
+```java
+package com.educy.dao;
+
+/**
+ * @Author 马小姐
+ * @Date 2020-10-09 19:16
+ * @Version 1.0
+ * @Description:
+ */
+public interface StudentMapper {
+
+}
+```
+
+```java
+package com.educy.dao;
+
+import com.educy.entity.Teacher;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
+
+/**
+ * @Author 马小姐
+ * @Date 2020-10-09 19:16
+ * @Version 1.0
+ * @Description:
+ */
+public interface TeacherMapper {
+    @Select("select * from teacher where id = #{tid}")
+    Teacher getTeacher(@Param("tid") int id);
+
+}
+```
+
+
+
+##### 第四步、建立Mapper.xml文件
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.educy.dao.TeacherMapper" >
+
+</mapper>
+```
+
+
+
+##### 第五步、在Mybatis.config.xml文件中注册Mapper接口或者扫描xml文件(方式很多)
+
+```xml
+    <mappers>
+<!--        <mapper resource="com/educy/dao/TeacherMapper.xml"></mapper>-->
+        <mapper class="com.educy.dao.TeacherMapper"/>
+<!--        <mapper class="com.educy.dao.StudentMapper"/>-->
+    </mappers>
+```
+
+
+
+##### 第六步、编写测试类
+
+```java
+package com.educy;
+
+import com.educy.dao.TeacherMapper;
+import com.educy.util.MybatisUtils;
+import org.apache.ibatis.session.SqlSession;
+
+/**
+ * @Author 马小姐
+ * @Date 2020-10-09 19:24
+ * @Version 1.0
+ * @Description:
+ */
+
+
+public class Teacher {
+    public static void main(String[] args){
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        TeacherMapper mapper = sqlSession.getMapper(TeacherMapper.class);
+        com.educy.entity.Teacher teacher = mapper.getTeacher(1);
+        System.out.println(teacher);
+        sqlSession.close();
+
+    }
+}
+```
+
+![vBpfG1-2020-10-10-09-18-02](https://cyymacbookpro.oss-cn-shanghai.aliyuncs.com/Macbookpro/vBpfG1-2020-10-10-09-18-02)
+
+
+
+
+
+#### ③、多对一复杂查询的处理
+
+##### StudentMapper接口
+
+```java
+public interface StudentMapper {
+
+    List<Student> geStudent();
+
+    List<Student> geStudent2();
+}
+```
+
+
+
+##### StudentMapper.xml
+
+###### 按照关联查询处理联表查询
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.educy.dao.StudentMapper" >
+
+<!--    复杂查询的思路-->
+<!--    查询所有学生的信息-->
+<!--    根绝查询出来的学生tid 寻找对应的老师-->
+
+    <select id="geStudent" resultMap="StudentTeacher">
+        select* FROM student ;
+    </select>
+    <resultMap id="StudentTeacher" type="Student">
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+        <!-- 复杂的属性我们需要单独处理   如果是一个对象我们就使用 association  如果是一个集合我们就使用 collection -->
+
+        <association property="teacher" column="tid" javaType="Teacher" select="getTeacher"/>
+    </resultMap>
+    
+    <select id="getTeacher" resultType="Teacher">
+        select * from teacher where id = #{id}
+    </select>
+</mapper>
+```
+
+###### 按照结果嵌套处理
+
+ ```xml
+<!---=====================================按照结果嵌套处理=========================================================-->
+    <select id="geStudent2" resultMap="StudentTeacher2" >
+     SELECT s.id sid ,s.name  sname ,t.name tname
+     from student s ,teacher t
+     where s.tid = t.id;
+    </select>
+
+    <resultMap id="StudentTeacher2" type="Student">
+        <result property="id" column="sid"/>
+        <result property="name" column="sname"/>
+        <association property="teacher" javaType="Teacher">
+            <result property="name" column="tname"/>
+        </association>
+
+    </resultMap>
+ ```
+
+
+
+##### 测试类
+
+```java
+package com.educy;
+
+import com.educy.dao.StudentMapper;
+import com.educy.dao.TeacherMapper;
+import com.educy.entity.Student;
+import com.educy.util.MybatisUtils;
+import org.apache.ibatis.session.SqlSession;
+import org.junit.Test;
+
+import java.util.List;
+
+/**
+ * @Author 马小姐
+ * @Date 2020-10-09 19:24
+ * @Version 1.0
+ * @Description:
+ */
+
+
+public class MybatisTest {
+    public static void main(String[] args){
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        TeacherMapper mapper = sqlSession.getMapper(TeacherMapper.class);
+        com.educy.entity.Teacher teacher = mapper.getTeacher(1);
+        System.out.println(teacher);
+        sqlSession.close();
+    }
+
+
+    @Test
+    public  void  getStudent(){
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
+        List<Student> students = mapper.geStudent();
+        for (com.educy.entity.Student studentList:students){
+            System.out.println(studentList);
+        }
+
+        sqlSession.close();
+    }
+
+
+    @Test
+    public  void  getStudent2(){
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
+        List<Student> students = mapper.geStudent2();
+        for (com.educy.entity.Student studentList:students){
+            System.out.println(studentList);
+        }
+
+        sqlSession.close();
+    }
+}
+
+```
+
+![pxIOnl-2020-10-12-09-36-31](https://cyymacbookpro.oss-cn-shanghai.aliyuncs.com/Macbookpro/pxIOnl-2020-10-12-09-36-31)
+
+
+
+
+
+# 八、一对多  重难点
+
+
+
+
+
+
+
