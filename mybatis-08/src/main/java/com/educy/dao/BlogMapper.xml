@@ -10,15 +10,31 @@
         insert into easy_mybatis.blog (id ,title ,author , create_time , views) values
         (#{id} , #{title} , #{author},#{createTime},#{views})
     </insert>
+
+    <sql id="if-title-author">
+        <if test="title != null">
+            title = #{title}
+        </if>
+        <if test="author != null">
+            and author = #{author}
+        </if>
+    </sql>
+
+    <sql id="set-title-author">
+        <set>
+            <if test="title!=null">
+                title = #{title},
+            </if>
+            <if test="author!=null">
+                author = #{author},
+            </if>
+        </set>
+    </sql>
+
     <select id="queryBlogIF" parameterType="map" resultType="Blog">
         select  * from blog
         <where>
-            <if test="title != null">
-                title = #{title}
-            </if>
-            <if test="author != null">
-                and author = #{author}
-            </if>
+           <include refid="if-title-author"></include>
         </where>
     </select>
 
@@ -39,4 +55,12 @@
             </choose>
         </where>
     </select>
+
+
+
+    <update id="updateBlog"  parameterType="map" >
+        update blog
+        <include refid="set-title-author"></include>
+        where id = #{id}
+    </update>
 </mapper>

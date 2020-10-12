@@ -1663,3 +1663,59 @@ prefixOverrides 属性会忽略通过管道符分隔的文本序列（注意此�
 
 
 
+```java
+BlogMapper.java
+  
+//更新博客
+int updateBlog(Map map);
+```
+
+
+
+```xml
+BlogMapper.xml
+
+<update id="updateBlog"  parameterType="map" >
+        update blog
+        <set>
+            <if test="title!=null">
+                title = #{title},
+            </if>
+            <if test="author!=null">
+                author = #{author},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+```
+
+
+
+```java
+   @Test
+    public void updateBlog(){
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        BlogMapper mapper = sqlSession.getMapper(BlogMapper.class);
+        HashMap hashMap = new HashMap ();
+        hashMap.put("title","springboot9999");
+        hashMap.put("author","狂神说");
+        hashMap.put("id","036f0fc00c414242ad7c01c92c114250");
+        mapper.updateBlog(hashMap);
+
+    }
+```
+
+![image-20201012161623485](/Users/mac/Library/Application Support/typora-user-images/image-20201012161623485.png)
+
+
+
+__所谓的动态sql其实还是sql层面的东西 只是我们可以在sql层面去执行一些逻辑代码__
+
+
+
+
+
+### 6、foreach
+
+__有的时候我们可能会将一些公共的部分抽取出来复用__
+

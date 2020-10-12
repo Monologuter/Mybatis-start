@@ -24,4 +24,8 @@ public interface BlogMapper {
     //查询博客 choose
     List<Blog> queryBlogChoose(Map map);
 
+
+    //更新博客
+    int updateBlog(Map map);
+
 }

@@ -68,4 +68,17 @@ public class MybatisTest {
         }
     }
 
+
+    @Test
+    public void updateBlog(){
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        BlogMapper mapper = sqlSession.getMapper(BlogMapper.class);
+        HashMap hashMap = new HashMap ();
+        hashMap.put("title","springboot888");
+        hashMap.put("author","狂神");
+        hashMap.put("id","036f0fc00c414242ad7c01c92c114250");
+        mapper.updateBlog(hashMap);
+
+    }
+
 }
