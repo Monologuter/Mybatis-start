@@ -28,7 +28,7 @@ public class MybatisTest {
 
         Blog blog  = new Blog();
         blog.setId(IDutils.getId());
-        blog.setTitle("Mysql");
+        blog.setTitle("redis");
         blog.setAuthor("陈亚");
         blog.setCreateTime(sqlDate);
         blog.setViews(99);
