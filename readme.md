@@ -1028,9 +1028,246 @@ public class MybatisTest {
 
 # 八、一对多  重难点
 
+#### 实体类
+
+```java
+Student.java
+  
+ 
+@Data
+public class Student {
+    private int id;
+    private String name;
+    
+    private int tid;
+}
+```
+
+
+
+```java
+Teacher.java
+  
+@Data
+public class Teacher {
+    private int id;
+    private String name;
+    private List<Student> students;
+}
+```
+
+
+
+#### 接口 TeacherMapper.java
+
+```java
+package com.educy.dao;
+
+import com.educy.entity.Teacher;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
+
+/**
+ * @Author 马小姐
+ * @Date 2020-10-09 19:16
+ * @Version 1.0
+ * @Description:
+ */
+public interface TeacherMapper {
+    //获取老师
+    List<Teacher> getTeacher();
+
+    //获取老师及其他的学生
+    Teacher getTeacher2(@Param("tid") int id);
+}
+```
+
+
+
+#### xml
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.educy.dao.TeacherMapper" >
+    <select id="getTeacher" resultType="Teacher">
+        select * from teacher;
+    </select>
+
+
+<!--    按结果嵌套查询-->
+    <select id="getTeacher2" resultMap="TeacherStudent" >
+        SELECT s.id sid ,s.name sname ,t.name tname ,t.id tid
+        from teacher t , student s
+        WHERE s.tid = t.id and t.id = #{tid};
+    </select>
+
+    <resultMap id="TeacherStudent" type="Teacher">
+        <result property="id" column="tid"/>
+        <result property="name" column="tname"/>
+        <!--集合使用collection-->
+        <!--javaType=""指定属性的类型 集合中的tyoe类型用ofType-->
+        <collection property="students" ofType="Student">
+            <result property="id" column="sid"/>
+            <result property="name" column="sname"/>
+            <result property="tid" column="tid"/>
+        </collection>
+    </resultMap>
+
+    <!--============================================================================-->
+    <select id="getTeacher3" resultMap="TeacherStudent2">
+        select * from teacher where id = #{tid}
+    </select>
+    
+    <resultMap id="TeacherStudent2" type="Teacher">
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+        <collection property="students"  javaType="ArrayList" ofType="Student" select="getStudentByTeacherId" column="id"/>
+    </resultMap>
+    
+    <select id="getStudentByTeacherId" resultType="Student">
+        select * from student where  tid = #{tid};
+    </select>
+</mapper>
+```
+
+
+
+#### 测试类
+
+```java
+import com.educy.dao.TeacherMapper;
+import com.educy.entity.Teacher;
+import com.educy.util.MybatisUtils;
+import org.apache.ibatis.session.SqlSession;
+import org.junit.Test;
+
+import java.util.List;
+
+/**
+ * @Author 马小姐
+ * @Date 2020-10-12 09:50
+ * @Version 1.0
+ * @Description:
+ */
+public class MybatisTest {
+    public static void main(String[] args) {
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        TeacherMapper mapper = sqlSession.getMapper(TeacherMapper.class);
+        List<Teacher> teacherList = mapper.getTeacher();
+        for (Teacher teacher : teacherList) {
+            System.out.println(teacher);
+        }
+        sqlSession.close();
+    }
+
+
+    @Test
+    public void TeacherStudent(){
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        TeacherMapper mapper = sqlSession.getMapper(TeacherMapper.class);
+        Teacher teacher2 = mapper.getTeacher2(1);
+        System.out.println(teacher2);
+        sqlSession.close();
+    }
+
+
+    @Test
+    public void TeacherStudent2(){
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        TeacherMapper mapper = sqlSession.getMapper(TeacherMapper.class);
+        Teacher teacher3 = mapper.getTeacher3(1);
+        System.out.println(teacher3);
+        sqlSession.close();
+    }
+}
+
+```
+
+
+
+![9v9cg6-2020-10-12-10-27-23](https://cyymacbookpro.oss-cn-shanghai.aliyuncs.com/Macbookpro/9v9cg6-2020-10-12-10-27-23)
+
+
+
+![ft82FE-2020-10-12-10-28-10](https://cyymacbookpro.oss-cn-shanghai.aliyuncs.com/Macbookpro/ft82FE-2020-10-12-10-28-10)
 
 
 
 
 
+#### 小结
+
+关联     association   多对一
+
+集合 	collection      一对多
+
+javaType  用来指定实体类中属性的类型
+
+ofType     指定映射到List或者集合中的pojo类型  泛型中的约束类型
+
+
+
+__扩展：sql的慢查询  必修    1s    1000s __
+
+__面试高频:__
+
+* mysql引擎
+
+* Innodb底层原理
+
+* 索引
+
+* 索引的优化
+
+
+
+
+
+# 九、动态sql
+
+### 什么是动态sql ：
+
+#### 	①、根据不同的条件生成不同的sql语句
+
+```xml
+动态 SQL 是 MyBatis 的强大特性之一。如果你使用过 JDBC 或其它类似的框架，你应该能理解根据不同条件拼接 SQL 语句有多痛苦，例如拼接时要确保不能忘记添加必要的空格，还要注意去掉列表最后一个列名的逗号。利用动态 SQL，可以彻底摆脱这种痛苦。
+
+使用动态 SQL 并非一件易事，但借助可用于任何 SQL 映射语句中的强大的动态 SQL 语言，MyBatis 显著地提升了这一特性的易用性。
+
+如果你之前用过 JSTL 或任何基于类 XML 语言的文本处理器，你对动态 SQL 元素可能会感觉似曾相识。在 MyBatis 之前的版本中，需要花时间了解大量的元素。借助功能强大的基于 OGNL 的表达式，MyBatis 3 替换了之前的大部分元素，大大精简了元素种类，现在要学习的元素种类比原来的一半还要少。
+
+if
+choose (when, otherwise)
+trim (where, set)
+foreach
+```
+
+
+
+### 步骤
+
+#### ①、搭建环境
+
+```sql
+DROP TABLE IF EXISTS `blog`;
+CREATE TABLE `blog` (
+  `id` varchar(50) NOT NULL COMMENT '博客id',
+  `title` varchar(100) NOT NULL COMMENT '博客标题',
+  `author` varchar(30) NOT NULL COMMENT '博客作者',
+  `createTime` datetime NOT NULL COMMENT '创建时间',
+  `views` int(30) NOT NULL COMMENT '浏览量'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+```
+
+#### ②、创建一个基础的工程
+
+* 导包
+* 编写配置文件
+* 编写实体类
+* 编写实体类对应的Mapper接口以及Mapper.xml配置文件
+* 编写测试类
 
