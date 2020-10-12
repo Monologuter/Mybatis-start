@@ -1715,7 +1715,163 @@ __所谓的动态sql其实还是sql层面的东西 只是我们可以在sql层�
 
 
 
-### 6、foreach
+### 6、SQL片段
 
 __有的时候我们可能会将一些公共的部分抽取出来复用__
+
+#### ①、使用sql标签抽取公共部分然后使用include标签引用即可
+
+```xml
+    <sql id="if-title-author">
+        <if test="title != null">
+            title = #{title}
+        </if>
+        <if test="author != null">
+            and author = #{author}
+        </if>
+    </sql>
+
+
+
+    <sql id="set-title-author">
+        <set>
+            <if test="title!=null">
+                title = #{title},
+            </if>
+            <if test="author!=null">
+                author = #{author},
+            </if>
+        </set>
+    </sql>
+```
+
+
+
+```xml
+    <select id="queryBlogIF" parameterType="map" resultType="Blog">
+        select  * from blog
+        <where>
+           <include refid="if-title-author"></include>
+        </where>
+    </select>
+```
+
+```xml
+  <update id="updateBlog"  parameterType="map" >
+        update blog
+        <include refid="set-title-author"></include>
+        where id = #{id}
+    </update>
+```
+
+__注意事项：__
+
+* 最好基于单表来定义sql片段
+* 不要存在where标签
+
+
+
+
+
+###  7、foreach
+
+#### 简介：
+
+```tex
+动态 SQL 的另一个常见使用场景是对集合进行遍历（尤其是在构建 IN 条件语句的时候）。比如：
+```
+
+```xml
+<select id="selectPostIn" resultType="domain.blog.Post">
+  SELECT *
+  FROM POST P
+  WHERE ID in
+  <foreach item="item" index="index" collection="list"
+      open="(" separator="," close=")">
+        #{item}
+  </foreach>
+</select>
+```
+
+```tex
+foreach 元素的功能非常强大，它允许你指定一个集合，声明可以在元素体内使用的集合项（item）和索引（index）变量。它也允许你指定开头与结尾的字符串以及集合项迭代之间的分隔符。这个元素也不会错误地添加多余的分隔符。
+
+提示 你可以将任何可迭代对象（如 List、Set 等）、Map 对象或者数组对象作为集合参数传递给 foreach。当使用可迭代对象或者数组时，index 是当前迭代的序号，item 的值是本次迭代获取到的元素。当使用 Map 对象（或者 Map.Entry 对象的集合）时，index 是键，item 是值。
+
+至此，我们已经完成了与 XML 配置及映射文件相关的讨论。下一章将详细探讨 Java API，以便你能充分利用已经创建的映射配置。
+```
+
+
+
+```sql
+select * from user where 1=1 and
+
+<foreach item="id"  collection="idList"
+      open="(" separator="," close=")">
+        #{id}
+  </foreach>
+
+(id = 1 or id = 2 or id = 3)
+```
+
+#### 案例测试
+
+ ```java
+BlogMapper.java
+  
+//查询第 1 2 3 号博客的详细信息  注意  先去数据库中将id改为1234的形式  原来的随机数测试比较麻烦
+List<Blog> quBlogsForeach(Map map);
+ ```
+
+
+
+```xml
+BlogMapper.xml
+
+    <!--select * from blog where 1=1 and (id=1 or id=2 or id=3)
+    我们现在传递一个万能的map 这个map中可以存在一个集合  注意 open="and ("  and和括号之间有一个空格
+    -->
+    <select id="quBlogsForeach" parameterType="map" resultType="com.educy.entity.Blog">
+        select  * from blog
+        <where>
+
+            <foreach collection="ids" item="id" open="and ("  close=")" separator="or">
+                id = #{id}
+            </foreach>
+        </where>
+    </select>
+```
+
+
+
+```java
+   @Test
+    public void quBlogsForeach(){
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        BlogMapper mapper = sqlSession.getMapper(BlogMapper.class);
+        HashMap hashMap = new HashMap();
+        ArrayList<Integer> ids = new ArrayList<Integer>();
+        ids.add(1);
+        ids.add(2);
+        ids.add(3);
+        hashMap.put("ids",ids);
+
+        List<Blog> blogs = mapper.quBlogsForeach(hashMap);
+        for (Blog blog : blogs){
+            System.out.println(blog);
+        }
+    }
+```
+
+
+
+![AD8K3R-2020-10-12-17-09-50](https://cyymacbookpro.oss-cn-shanghai.aliyuncs.com/Macbookpro/AD8K3R-2020-10-12-17-09-50)
+
+
+
+__动态sql就是在拼接sql语句 我们只需要保证sql的正确性 按照sql的格式去排列组合就好了  __
+
+__建议 先去Navicat里面将需要执行的sql查询验证一下 保证sql的正确性__
+
+
 

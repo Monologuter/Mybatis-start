@@ -28,4 +28,9 @@ public interface BlogMapper {
     //更新博客
     int updateBlog(Map map);
 
+
+    //查询第 1 2 3 号博客的详细信息  注意  先去数据库中将id改为1234的形式  原来的随机数测试比较麻烦
+    List<Blog> quBlogsForeach(Map map);
+
+
 }

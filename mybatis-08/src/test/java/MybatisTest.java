@@ -5,6 +5,7 @@ import com.educy.util.MybatisUtils;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
@@ -79,6 +80,24 @@ public class MybatisTest {
         hashMap.put("id","036f0fc00c414242ad7c01c92c114250");
         mapper.updateBlog(hashMap);
 
+    }
+
+
+    @Test
+    public void quBlogsForeach(){
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        BlogMapper mapper = sqlSession.getMapper(BlogMapper.class);
+        HashMap hashMap = new HashMap();
+        ArrayList<Integer> ids = new ArrayList<Integer>();
+        ids.add(1);
+        ids.add(2);
+        ids.add(3);
+        hashMap.put("ids",ids);
+
+        List<Blog> blogs = mapper.quBlogsForeach(hashMap);
+        for (Blog blog : blogs){
+            System.out.println(blog);
+        }
     }
 
 }

@@ -63,4 +63,20 @@
         <include refid="set-title-author"></include>
         where id = #{id}
     </update>
+
+
+
+
+    <!--select * from blog where 1=1 and (id=1 or id=2 or id=3)
+    我们现在传递一个万能的map 这个map中可以存在一个集合  注意 open="and ("  and和括号之间有一个空格
+    -->
+    <select id="quBlogsForeach" parameterType="map" resultType="com.educy.entity.Blog">
+        select  * from blog
+        <where>
+
+            <foreach collection="ids" item="id" open="and ("  close=")" separator="or">
+                id = #{id}
+            </foreach>
+        </where>
+    </select>
 </mapper>
