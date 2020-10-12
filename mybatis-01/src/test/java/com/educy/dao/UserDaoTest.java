@@ -29,8 +29,8 @@ public class UserDaoTest {
             sqlSession=MybatisUtils.getSqlSession();
 
             //执行sql  方式一
-//        UserMapper Mapper = sqlSession.getMapper(UserMapper.class);
-//        List<User> userList = Mapper.getUserList();
+//        UserMapper dao = sqlSession.getMapper(UserMapper.class);
+//        List<User> userList = dao.getUserList();
 //        for (User user : userList) {
 //            System.out.println(user);
 //        }
@@ -71,9 +71,9 @@ public class UserDaoTest {
 //        //3、使用工厂生产一个sqlSession对象
 //        SqlSession session = factory.openSession();
 //        //4、使用SqlSession创建Dao接口的代理对象
-//        UserDao Mapper = session.getMapper(UserDao.class);
+//        UserDao dao = session.getMapper(UserDao.class);
 //
-//        List<User> userList = Mapper.getUserList();
+//        List<User> userList = dao.getUserList();
 //        for (User user : userList) {
 //            System.out.println(user);
 //        }

@@ -1248,9 +1248,9 @@ foreach
 
 
 
-### 步骤
+### 1、环境准备
 
-#### ①、搭建环境
+#### ①、搭建sql环境
 
 ```sql
 DROP TABLE IF EXISTS `blog`;
@@ -1258,7 +1258,7 @@ CREATE TABLE `blog` (
   `id` varchar(50) NOT NULL COMMENT '博客id',
   `title` varchar(100) NOT NULL COMMENT '博客标题',
   `author` varchar(30) NOT NULL COMMENT '博客作者',
-  `createTime` datetime NOT NULL COMMENT '创建时间',
+  `create_time` datetime NOT NULL COMMENT '创建时间',
   `views` int(30) NOT NULL COMMENT '浏览量'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 ```
@@ -1266,8 +1266,308 @@ CREATE TABLE `blog` (
 #### ②、创建一个基础的工程
 
 * 导包
-* 编写配置文件
+
+* 编写mybatis-config.xml配置文件
+
+  ```xml
+  <?xml version="1.0" encoding="UTF-8"?>
+  <!DOCTYPE configuration
+          PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+          "http://mybatis.org/dtd/mybatis-3-config.dtd">
+  <configuration>
+  <!--    引入外部配置文件-->
+      <properties  resource="db.properties"></properties>
+  
+  <!--    配置日志文件-->
+      <settings>
+  <!--        标准的日志工厂-->
+  <!--        <setting name="logImpl" value="STDOUT_LOGGING"/>-->
+          <setting name="logImpl" value="LOG4J"/>
+          
+          <!--是否开启驼峰命名自动映射，即从经典数据库列名 A_COLUMN 映射到经典 Java 属性名 aColumn-->
+          <setting name="mapUnderscoreToCamelCase" value="true"/>
+  
+      </settings>
+  
+  <!--    可以给实体类取别名-->
+      <typeAliases>
+          <package name="com.educy.entity"/>
+      </typeAliases>
+  
+      <!--配置文件标签-->
+      <!--主要的配置文件-->
+      <environments default="development">
+          <!--配置mybatis的环境-->
+          <environment id="development">
+              <!--配置的事务类型-->
+              <transactionManager type="JDBC"></transactionManager>
+              <!--配置数据源-->
+              <dataSource type="POOLED">
+                  <!--配置数据库连接的四个基本信息-->
+                  <property name="driver" value="${driver}" />
+                  <property name="url" value="${url}" />
+                  <property name="username" value="${username}" />
+                  <property name="password" value="${password}" />
+              </dataSource>
+          </environment>
+  
+          <environment id="aliyun">
+              <transactionManager type="JDBC"></transactionManager>
+              <dataSource type="POOLED">
+                  <property name="driver" value="com.mysql.jdbc.Driver" />
+                  <property name="url" value="jdbc:mysql://47.102.202.189:3306/mybatis?useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false&amp;serverTimezone=CTT" />
+                  <property name="username" value="root" />
+                  <property name="password" value="123456" />
+              </dataSource>
+          </environment>
+      </environments>
+  
+      <mappers>
+  
+          <mapper class="com.educy.dao.BlogMapper"/>
+      </mappers>
+  
+  </configuration>
+  ```
+
+  
+
 * 编写实体类
+
+  ```java
+  package com.educy.entity;
+  import lombok.Data;
+  import java.util.Date;
+  
+  /**
+   * @Author 马小姐
+   * @Date 2020-10-12 11:10
+   * @Version 1.0
+   * @Description:
+   */
+  @Data
+  public class Blog {
+      private  String id;
+      private  String title;
+      private  String author;
+      private  Date  createTime;
+      private  int view;
+  }
+  ```
+  
+* 编写UUID工具类
+
+  __作用：生成随机的id__
+
+  ```java
+  package com.educy.util;
+  
+  import org.junit.jupiter.api.DynamicTest;
+  import org.junit.jupiter.api.Test;
+  
+  import java.util.UUID;
+  
+  /**
+   * @Author 马小姐
+   * @Date 2020-10-12 11:20
+   * @Version 1.0
+   * @Description:
+   */
+  @SuppressWarnings("all")
+  public class IDutils {
+      public static String getId(){
+          return UUID.randomUUID().toString().replaceAll("-","");
+      }
+  
+      @Test
+      public void Test(){
+          System.out.println(IDutils.getId());
+      }
+  }
+  ```
+
+  ![8qD06e-2020-10-12-11-30-52](https://cyymacbookpro.oss-cn-shanghai.aliyuncs.com/Macbookpro/8qD06e-2020-10-12-11-30-52)
+
 * 编写实体类对应的Mapper接口以及Mapper.xml配置文件
+
+  BlogMapper.xml
+
+  ```xml
+  <?xml version="1.0" encoding="UTF-8"?>
+  <!DOCTYPE mapper
+          PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+          "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.educy.dao.BlogMapper">
+  
+  
+      <insert id="addBlog" parameterType="Blog">
+          insert into easy_mybatis.blog (id ,title ,author , create_time , views) values
+          (#{id} , #{title} , #{author},#{createTime},#{views})
+      </insert>
+  </mapper>
+  ```
+
+  
+
 * 编写测试类
+
+  ```java
+  import com.educy.dao.BlogMapper;
+  import com.educy.entity.Blog;
+  import com.educy.util.IDutils;
+  import com.educy.util.MybatisUtils;
+  import org.apache.ibatis.session.SqlSession;
+  
+  import java.util.UUID;
+  
+  /**
+   * @Author 马小姐
+   * @Date 2020-10-12 11:45
+   * @Version 1.0
+   * @Description:
+   */
+  public class MybatisTest {
+      public static void main(String[] args) {
+          java.util.Date utilDate=new java.util.Date();
+          java.sql.Date sqlDate=new java.sql.Date(utilDate.getTime());
+  
+  
+          SqlSession sqlSession = MybatisUtils.getSqlSession();
+          BlogMapper mapper = sqlSession.getMapper(BlogMapper.class);
+  
+  
+          Blog blog  = new Blog();
+          blog.setId(IDutils.getId());
+          blog.setTitle("Java");
+          blog.setAuthor("黑马程序员");
+          blog.setCreateTime(sqlDate);
+          blog.setViews(999);
+  
+          mapper.addBlog(blog);
+  
+          sqlSession.close();
+      }
+  }
+  ```
+
+  
+
+![image-20201012140627380](/Users/mac/Library/Application Support/typora-user-images/image-20201012140627380.png)
+
+![image-20201012140751420](/Users/mac/Library/Application Support/typora-user-images/image-20201012140751420.png)
+
+
+
+### 2、IF：
+
+①、[官网实例](https://mybatis.org/mybatis-3/zh/dynamic-sql.html)
+
+```java
+<select id="findActiveBlogWithTitleLike"
+     resultType="Blog">
+  SELECT * FROM BLOG
+  WHERE state = ‘ACTIVE’
+  <if test="title != null">
+    AND title like #{author}
+  </if>
+</select>
+```
+
+```xml
+这条语句提供了可选的查找文本功能。如果不传入 “title”，那么所有处于 “ACTIVE” 状态的 BLOG 都会返回；如果传入了 “title” 参数，那么就会对 “title” 一列进行模糊查找并返回对应的 BLOG 结果（细心的读者可能会发现，“title” 的参数值需要包含查找掩码或通配符字符）。
+
+如果希望通过 “title” 和 “author” 两个参数进行可选搜索该怎么办呢？首先，我想先将语句名称修改成更名副其实的名称；接下来，只需要加入另一个条件即可。
+```
+
+```java
+<select id="findActiveBlogLike"
+     resultType="Blog">
+  SELECT * FROM BLOG WHERE state = ‘ACTIVE’
+  <if test="title != null">
+    AND title like #{title}
+  </if>
+  <if test="author != null and author.name != null">
+    AND author_name like #{author.name}
+  </if>
+</select>
+```
+
+②、需求：自定义查询
+
+__当什么都不传的时候查询所有的博客 当传入的是title的时候查询指定的title的博客 当传的是author的时候查询指定作者的博客.....__
+
+```java
+BlogMapper.java
+
+//查询博客
+    List<Blog> queryBlogIF(Map map);
+```
+
+
+
+```xml
+BlogMapper.xml
+
+<select id="queryBlogIF" parameterType="map" resultType="com.educy.entity.Blog">
+        select  * from blog where 1=1
+        <if test="title != null">
+            and title = #{title}
+        </if>
+        <if test="author != null">
+            and author = #{title}
+        </if>
+    </select>
+```
+
+
+
+```java
+MybatisTest.java
+
+  @Test
+    public  void queryBlogIF(){
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        BlogMapper mapper = sqlSession.getMapper(BlogMapper.class);
+        HashMap hashMap = new HashMap ();
+
+        hashMap.put("title","spring");
+
+        List<Blog> blogs = mapper.queryBlogIF(hashMap);
+        for (Blog blog : blogs){
+            System.out.println(blog);
+        }
+        sqlSession.close();
+    }
+```
+
+
+
+![iVrEbr-2020-10-12-14-33-26](https://cyymacbookpro.oss-cn-shanghai.aliyuncs.com/Macbookpro/iVrEbr-2020-10-12-14-33-26)
+
+### 3、choose、when、otherwise
+
+```xml
+有时候，我们不想使用所有的条件，而只是想从多个条件中选择一个使用。针对这种情况，MyBatis 提供了 choose 元素，它有点像 Java 中的 switch 语句。
+
+还是上面的例子，但是策略变为：传入了 “title” 就按 “title” 查找，传入了 “author” 就按 “author” 查找的情形。若两者都没有传入，就返回标记为 featured 的 BLOG（这可能是管理员认为，与其返回大量的无意义随机 Blog，还不如返回一些由管理员精选的 Blog）。
+```
+
+```java
+<select id="findActiveBlogLike"
+     resultType="Blog">
+  SELECT * FROM BLOG WHERE state = ‘ACTIVE’
+  <choose>
+    <when test="title != null">
+      AND title like #{title}
+    </when>
+    <when test="author != null and author.name != null">
+      AND author_name like #{author.name}
+    </when>
+    <otherwise>
+      AND featured = 1
+    </otherwise>
+  </choose>
+</select>
+```
 
