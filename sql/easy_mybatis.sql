@@ -11,7 +11,7 @@
  Target Server Version : 50731
  File Encoding         : 65001
 
- Date: 03/10/2020 22:54:27
+ Date: 13/10/2020 16:33:13
 */
 
 SET NAMES utf8mb4;
@@ -37,6 +37,32 @@ BEGIN;
 INSERT INTO `account` VALUES (1, 41, 1000);
 INSERT INTO `account` VALUES (2, 45, 1000);
 INSERT INTO `account` VALUES (3, 41, 2000);
+COMMIT;
+
+-- ----------------------------
+-- Table structure for blog
+-- ----------------------------
+DROP TABLE IF EXISTS `blog`;
+CREATE TABLE `blog` (
+  `id` varchar(50) NOT NULL COMMENT '博客id',
+  `title` varchar(100) NOT NULL COMMENT '博客标题',
+  `author` varchar(30) NOT NULL COMMENT '博客作者',
+  `create_time` datetime NOT NULL COMMENT '创建时间',
+  `views` int(30) NOT NULL COMMENT '浏览量',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of blog
+-- ----------------------------
+BEGIN;
+INSERT INTO `blog` VALUES ('1', 'springboot888', '狂神', '2020-10-12 14:11:53', 1000);
+INSERT INTO `blog` VALUES ('2', 'spring', '陈亚', '2020-10-12 14:03:17', 100);
+INSERT INTO `blog` VALUES ('26ed03773b604aa6a67ff9a115f3106d', 'redis', '陈亚', '2020-10-12 17:19:21', 99);
+INSERT INTO `blog` VALUES ('3', 'Java', '黑马程序员', '2020-10-12 14:05:51', 999);
+INSERT INTO `blog` VALUES ('4', 'SpringMVC', '狂神说', '2020-10-12 14:11:12', 999);
+INSERT INTO `blog` VALUES ('5', 'Mysql', '陈亚', '2020-10-12 14:12:14', 99);
+INSERT INTO `blog` VALUES ('6', 'Python', '狂神说', '2020-10-12 14:11:35', 1000);
 COMMIT;
 
 -- ----------------------------
@@ -207,6 +233,47 @@ INSERT INTO `s_teacher` VALUES (18, 'T11561727746515', '青元子', '123456', 1,
 COMMIT;
 
 -- ----------------------------
+-- Table structure for student
+-- ----------------------------
+DROP TABLE IF EXISTS `student`;
+CREATE TABLE `student` (
+  `id` int(10) NOT NULL,
+  `name` varchar(30) DEFAULT NULL,
+  `tid` int(10) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fktid` (`tid`),
+  CONSTRAINT `fktid` FOREIGN KEY (`tid`) REFERENCES `teacher` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of student
+-- ----------------------------
+BEGIN;
+INSERT INTO `student` VALUES (1, '张三', 1);
+INSERT INTO `student` VALUES (2, '李四', 1);
+INSERT INTO `student` VALUES (3, '王五', 1);
+INSERT INTO `student` VALUES (4, '赵六', 1);
+INSERT INTO `student` VALUES (7, '田七', 1);
+COMMIT;
+
+-- ----------------------------
+-- Table structure for teacher
+-- ----------------------------
+DROP TABLE IF EXISTS `teacher`;
+CREATE TABLE `teacher` (
+  `id` int(10) NOT NULL,
+  `name` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of teacher
+-- ----------------------------
+BEGIN;
+INSERT INTO `teacher` VALUES (1, '陈亚');
+COMMIT;
+
+-- ----------------------------
 -- Table structure for user
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
@@ -217,53 +284,41 @@ CREATE TABLE `user` (
   `sex` char(1) DEFAULT NULL COMMENT '性别',
   `address` varchar(256) DEFAULT NULL COMMENT '地址',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=89 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=104 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
 BEGIN;
-INSERT INTO `user` VALUES (41, '陈亚777', '2020-10-03 00:00:00', '男', '上海');
+INSERT INTO `user` VALUES (41, '陈亚9999', '2020-10-08 00:00:00', '男', '上海');
 INSERT INTO `user` VALUES (42, '小二王', '2018-03-02 15:09:37', '女', '北京金燕龙');
 INSERT INTO `user` VALUES (43, '小二王', '2018-03-04 11:34:34', '女', '北京金燕龙');
 INSERT INTO `user` VALUES (45, '传智播客', '2018-03-04 12:04:06', '男', '北京金燕龙');
 INSERT INTO `user` VALUES (46, '老王', '2018-03-07 17:37:26', '男', '北京');
 INSERT INTO `user` VALUES (48, '小马宝莉', '2018-03-08 11:44:00', '女', '北京修正');
 INSERT INTO `user` VALUES (54, '陈亚jjj', '2020-09-30 11:05:07', '男', '江苏省');
-INSERT INTO `user` VALUES (55, '陈亚', '2020-09-30 11:06:12', '男', '江苏省');
-INSERT INTO `user` VALUES (56, '陈亚', '2020-09-30 12:11:45', '男', '江苏省');
-INSERT INTO `user` VALUES (57, '陈亚', '2020-09-30 12:12:47', '男', '江苏省');
-INSERT INTO `user` VALUES (58, '陈亚', '2020-09-30 12:31:59', '男', '江苏省');
-INSERT INTO `user` VALUES (59, '陈亚', '2020-09-30 00:00:00', '男', '上海市');
-INSERT INTO `user` VALUES (60, '陈亚6666', '2020-09-30 00:00:00', '男', '上海市');
-INSERT INTO `user` VALUES (61, '陈亚', '2020-09-30 22:25:17', '男', '江苏省');
-INSERT INTO `user` VALUES (62, '陈亚6666', '2020-09-30 00:00:00', '男', '上海市');
 INSERT INTO `user` VALUES (63, '华妍', NULL, '女', NULL);
 INSERT INTO `user` VALUES (64, '华妍', NULL, '女', NULL);
 INSERT INTO `user` VALUES (65, '华妍', NULL, '女', NULL);
 INSERT INTO `user` VALUES (66, '李五', NULL, '女', NULL);
-INSERT INTO `user` VALUES (67, '陈亚', '2020-10-01 08:11:40', '男', '江苏省');
 INSERT INTO `user` VALUES (68, '李五', NULL, '女', NULL);
 INSERT INTO `user` VALUES (69, '李四', NULL, '女', NULL);
-INSERT INTO `user` VALUES (70, '陈亚', '2020-10-01 08:12:39', '男', '江苏省');
 INSERT INTO `user` VALUES (71, '李四', NULL, '女', NULL);
-INSERT INTO `user` VALUES (72, '陈亚', '2020-10-01 08:19:49', '男', '江苏省');
 INSERT INTO `user` VALUES (73, '李四', NULL, '女', NULL);
-INSERT INTO `user` VALUES (74, '陈亚', '2020-10-01 16:06:42', '男', '江苏省');
 INSERT INTO `user` VALUES (75, '李四', NULL, '女', NULL);
-INSERT INTO `user` VALUES (76, '陈亚', '2020-10-01 16:07:08', '男', '江苏省');
-INSERT INTO `user` VALUES (77, '陈亚', '2020-10-01 22:59:01', '男', '江苏省');
-INSERT INTO `user` VALUES (78, '陈亚', '2020-10-02 09:32:11', '男', '江苏省');
-INSERT INTO `user` VALUES (79, '陈亚', '2020-10-03 20:27:01', '男', '江苏省');
 INSERT INTO `user` VALUES (80, '李四', NULL, '女', NULL);
-INSERT INTO `user` VALUES (81, '陈亚', '2020-10-03 20:32:42', '男', '江苏省');
 INSERT INTO `user` VALUES (82, '李四', NULL, '女', NULL);
-INSERT INTO `user` VALUES (83, '陈亚', '2020-10-03 20:33:05', '男', '江苏省');
-INSERT INTO `user` VALUES (84, '陈亚', '2020-10-03 20:49:11', '男', '江苏省');
 INSERT INTO `user` VALUES (85, '李四', NULL, '女', NULL);
-INSERT INTO `user` VALUES (86, '陈亚', '2020-10-03 21:09:51', '男', '江苏省');
 INSERT INTO `user` VALUES (87, '李四', NULL, '女', NULL);
-INSERT INTO `user` VALUES (88, '陈亚', '2020-10-03 21:19:42', '男', '江苏省');
+INSERT INTO `user` VALUES (89, '李四', NULL, '女', NULL);
+INSERT INTO `user` VALUES (91, '李四', NULL, '女', NULL);
+INSERT INTO `user` VALUES (94, '李四', NULL, '女', NULL);
+INSERT INTO `user` VALUES (97, '李四', NULL, '女', NULL);
+INSERT INTO `user` VALUES (98, '李四', NULL, '女', NULL);
+INSERT INTO `user` VALUES (99, '陈亚', '2020-10-08 16:12:36', '男', '江苏省');
+INSERT INTO `user` VALUES (100, '陈亚6666', '2020-10-08 16:13:02', '男', '江苏省');
+INSERT INTO `user` VALUES (102, '乔碧萝', '2020-10-09 17:28:41', '女', '常州市');
+INSERT INTO `user` VALUES (103, '陈亚', '2020-10-09 17:34:22', '男', '江苏省');
 COMMIT;
 
 -- ----------------------------
@@ -278,7 +333,7 @@ CREATE TABLE `user02` (
   `t_address` varchar(256) DEFAULT NULL COMMENT '地址',
   `t_password` varchar(255) DEFAULT NULL COMMENT '密码',
   PRIMARY KEY (`t_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=89 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user02
