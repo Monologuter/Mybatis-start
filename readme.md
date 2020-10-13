@@ -1315,7 +1315,7 @@ CREATE TABLE `blog` (
               <transactionManager type="JDBC"></transactionManager>
               <dataSource type="POOLED">
                   <property name="driver" value="com.mysql.jdbc.Driver" />
-                  <property name="url" value="jdbc:mysql://47.102.202.189:3306/mybatis?useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false&amp;serverTimezone=CTT" />
+                  <property name="url" value="jdbc:mysql://localhost:3307/easy_mybatis?useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false&amp;serverTimezone=CTT" />
                   <property name="username" value="root" />
                   <property name="password" value="123456" />
               </dataSource>
@@ -1872,4 +1872,124 @@ __动态sql就是在拼接sql语句 我们只需要保证sql的正确性 按照s
 __建议 先去Navicat里面将需要执行的sql查询验证一下 保证sql的正确性__
 
 
+
+# 十、Mybatis缓存
+
+### 1、什么是缓存
+
+```tex
+所有的sql操作都是要连接数据库的 耗资源  
+想一下有什么办法可以直接一次查询出来所有的结果 将其暂存在一个可以直接取到的地方   就像计算机的内存条一样
+然后我们再次查询的时候就直接从缓存中取到就好了 不需要再走数据库了 从而提高了查询的效率  解决了高并发系统的性能问题
+```
+
+
+
+### 2、为什么使用缓存
+
+```tex
+减少和数据库交互的次数 较少系统资源开销  提高系统的效率
+```
+
+
+
+### 3、什么样的数据可以使用缓存
+
+```txt
+经常使用而且不经常改变的数据
+```
+
+
+
+### 4、关于Mybatis的缓存
+
+#### 10.4.1、简介
+
+__Mybatis包含了一个非常强大的查询缓存特性  可以直接非常方便地定制和配置缓存 缓存可以极大提高查询效率__
+
+__Mybatis默认有两级缓存  一级缓存和二级缓存__
+
+* 默认情况下只有一级缓存开启（SqlSession级别的缓存 也称为本地缓存）
+* 二级缓存需要手动开启和配置 他是基于namespace级别的缓存
+* 为了提高扩展性 Mybatis定义了缓存接口Cache  我们可以通过接口来自定义二级缓存
+
+ 
+
+
+
+### 5、一级缓存
+
+#### 10.5.1、一级缓存也叫本地缓存  SqlSession
+
+​	与数据库同一次会话期间查询到的数据会放在本地缓存中
+
+​	以后如果需要就直接从缓存中拿就好了
+
+#### 10.5.2、测试步骤
+
+##### ①、开启日志
+
+![ssCs4m-2020-10-13-09-07-54](https://cyymacbookpro.oss-cn-shanghai.aliyuncs.com/Macbookpro/ssCs4m-2020-10-13-09-07-54)
+
+
+
+##### ②、测试在一个SqlSession中查询两次相同的记录 查看日志输出
+
+```java
+ 根据id查询用户
+
+@Test
+    public void queryUserById(){
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        User user = mapper.queryUserById(41);
+        User user1 = mapper.queryUserById(41);
+        System.out.println(user);
+        System.out.println(user1);
+        sqlSession.close();
+    }
+```
+
+
+
+![kZgAdH-2020-10-13-09-28-06](https://cyymacbookpro.oss-cn-shanghai.aliyuncs.com/Macbookpro/kZgAdH-2020-10-13-09-28-06)
+
+可以看到查询相同的数据  sqlsession只连接了一次 说明默认是开启一级缓存的！
+
+
+
+#### 10.5.3、失效情况
+
+* 增删改必定会修改数据 所以一定会刷新缓存
+
+* 查询不同的东西
+
+* 查询不同的Mapper.xml
+
+* 手动清除缓存
+
+  ```java
+  sqlSession.clearCache();
+  ```
+
+
+
+### 6、二级缓存
+
+* 二级缓存也叫作全局缓存 一级缓存作用域太低了 所以诞生了二级缓存
+* 基于namespace级别的缓存 一个名称空间  对应一个二级缓存
+* 工作机制
+  * 一个会话查询一条语句  这个数据就会被放在当前会话级别的缓存中
+  * 如果当前会话关闭了  这个会话的一级缓存就没有了  但是我们想要的是 会话关闭了 一级缓存中的数据会被保存到二级缓存中
+  * 新的会话查询信息 就可以从二级缓存中读取
+  * 不同的mapper查询出来的数据也会放在自己的缓存中(mapper) 
+
+#### 10.6.1、步骤
+
+##### 	开启全局缓存
+
+```xml
+<!--        显示地开启全局缓存-->
+        <setting name="cacheEnabled" value="true"/>
+```
 
